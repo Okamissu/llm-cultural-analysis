@@ -3,6 +3,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 
 import compareRoutes from './routes/compare.js'
+import { PORT } from './config/config.js'
 
 const app = express()
 
@@ -17,8 +18,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/compare', compareRoutes)
-
-const PORT = 3000
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
