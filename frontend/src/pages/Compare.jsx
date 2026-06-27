@@ -12,24 +12,25 @@ function Compare() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-4xl mx-auto space-y-6">
       <h1 className="text-3xl font-bold">LLM Cultural Analysis Tool</h1>
 
       <textarea
-        className="w-full border rounded p-4"
-        rows="6"
+        rows={8}
+        className="w-full border rounded-lg p-4"
+        placeholder="Enter your prompt..."
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
       />
 
       <button
         onClick={handleCompare}
-        className="bg-blue-600 text-white px-6 py-2 rounded"
+        className="px-6 py-3 rounded bg-blue-600 text-white"
       >
         Compare
       </button>
 
-      <div className="border rounded p-4">{answer}</div>
+      <div className="border rounded-lg p-4 min-h-32">{answer}</div>
     </div>
   )
 }
