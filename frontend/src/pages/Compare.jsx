@@ -4,6 +4,7 @@ import { comparePrompts } from '../services/api'
 
 import SimilarityChart from '../components/SimilarityChart'
 import JudgeTable from '../components/JudgeTable'
+import EmbeddingPlot from '../components/EmbeddingPlot'
 
 export default function Compare() {
   const [prompt, setPrompt] = useState('')
@@ -121,6 +122,7 @@ export default function Compare() {
                   promptSimilarity={result.prompt.similarity}
                   responseSimilarity={result.response.similarity}
                 />
+                <EmbeddingPlot data={result.visualization} />
               </div>
 
               <div className="rounded-xl border p-6">
