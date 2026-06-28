@@ -3,6 +3,7 @@ import { translatePrompt } from './translationService.js'
 import { generateEmbeddings } from './embeddingService.js'
 import { evaluateResponses } from './judgeService.js'
 import { cosineSimilarity } from '../utils/cosineSimilarity.js'
+import { reduceEmbeddings } from '../utils/pca.js'
 
 export async function comparePrompts({
   prompt,
@@ -50,10 +51,21 @@ export async function comparePrompts({
     },
   }
 
+  const embeddingVisualization = reduceEmbeddings(
+    [
+      promptEmbedding,
+      translatedPromptEmbedding,
+      originalResponseEmbedding,
+      translatedResponseEmbedding,
+    ],
+    ['Prompt (PL)', 'Prompt (EN)', 'Response (PL)', 'Response (EN)'],
+  )
+
   const judge = await evaluateResponses(result)
 
   return {
     ...result,
+    visualization: embeddingVisualization,
     judge,
   }
 }
