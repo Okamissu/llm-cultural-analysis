@@ -4,6 +4,8 @@ import morgan from 'morgan'
 
 import compareRoutes from './routes/compare.js'
 import experimentRoutes from './routes/experiment.js'
+import statisticsRoutes from './routes/statistics.js'
+
 import { PORT } from './config/config.js'
 
 const app = express()
@@ -20,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/compare', compareRoutes)
 app.use('/api/experiments', experimentRoutes)
+app.use('/api/statistics', statisticsRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
