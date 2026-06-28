@@ -2,20 +2,32 @@ import { generateStructured } from './openaiService.js'
 
 import { judgeSchema } from '../schemas/judgeSchema.js'
 
-import { JUDGE_PROMPT } from '../prompts/systemPrompts.js'
+import { buildJudgePrompt } from '../prompts/judgePrompt.js'
 
-export async function evaluateResponses(result) {
-  return generateStructured(
-    JUDGE_PROMPT(
-      result.prompt.original,
+export async function evaluateResponses({ result, uiLanguage }) {
+  const prompt = `
+Original prompt:
 
-      result.prompt.translated,
+${result.prompt.original}
 
-      result.response.original,
+Translated prompt:
 
-      result.response.translated,
-    ),
+${result.prompt.translated}
 
-    judgeSchema,
-  )
+Original response:
+
+${result.response.original}
+
+Translated response:
+
+${result.response.translated}
+`
+
+  return generateStructured({
+    prompt,
+
+    systemPrompt: buildJudgePrompt(uiLanguage),
+
+    schema: judgeSchema,
+  })
 }
