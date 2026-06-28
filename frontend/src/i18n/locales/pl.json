@@ -37,12 +37,10 @@
     "translationDirection": "Kierunek tłumaczenia"
   },
   "prompt": {
-    "original": "Oryginalny prompt",
-    "translated": "Przetłumaczony prompt"
+    "title": "Prompt ({{language}})"
   },
   "response": {
-    "original": "Oryginalna odpowiedź",
-    "translated": "Przetłumaczona odpowiedź"
+    "title": "Odpowiedź ({{language}})"
   },
   "embedding": {
     "title": "Projekcja embeddingów (PCA)",
@@ -53,8 +51,6 @@
   "judge": {
     "title": "LLM jako ewaluator",
     "description": "Automatyczna ocena wygenerowanych odpowiedzi.",
-    "original": "Oryginał",
-    "translated": "Tłumaczenie",
     "summary": "Podsumowanie",
     "observations": "Obserwacje",
     "criteria": {

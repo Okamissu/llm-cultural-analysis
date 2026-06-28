@@ -37,12 +37,10 @@
     "translationDirection": "Translation direction"
   },
   "prompt": {
-    "original": "Original Prompt",
-    "translated": "Translated Prompt"
+    "title": "Prompt ({{language}})"
   },
   "response": {
-    "original": "Original Response",
-    "translated": "Translated Response"
+    "title": "Response ({{language}})"
   },
   "embedding": {
     "title": "Embedding Projection (PCA)",
@@ -53,8 +51,6 @@
   "judge": {
     "title": "LLM-as-a-Judge",
     "description": "Automatic comparison of generated responses.",
-    "original": "Original",
-    "translated": "Translated",
     "summary": "Summary",
     "observations": "Observations",
     "criteria": {

@@ -44,6 +44,14 @@ export default function Compare() {
     }
   }
 
+  const analysisLanguage = result?.settings?.sourceLanguage ?? sourceLanguage
+
+  const sourceLabel =
+    analysisLanguage === 'pl' ? t('languages.polish') : t('languages.english')
+
+  const targetLabel =
+    analysisLanguage === 'pl' ? t('languages.english') : t('languages.polish')
+
   return (
     <div className="mx-auto max-w-7xl space-y-10">
       <section className="rounded-2xl bg-white p-8 shadow-sm">
@@ -83,7 +91,9 @@ export default function Compare() {
         <>
           <section className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold">{t('prompt.original')}</h2>
+              <h2 className="mb-4 text-xl font-bold">
+                {t('prompt.title', { language: sourceLabel })}
+              </h2>
 
               <div className="whitespace-pre-wrap rounded-lg bg-slate-50 p-4">
                 {result.prompt.original}
@@ -92,7 +102,7 @@ export default function Compare() {
 
             <div className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
-                {t('prompt.translated')}
+                {t('prompt.title', { language: targetLabel })}
               </h2>
 
               <div className="whitespace-pre-wrap rounded-lg bg-slate-50 p-4">
@@ -104,20 +114,20 @@ export default function Compare() {
           <section className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
-                {t('response.original')}
+                {t('response.title', { language: sourceLabel })}
               </h2>
 
-              <div className="max-h-112.5 overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
+              <div className="max-h-[450px] overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
                 {result.response.original}
               </div>
             </div>
 
             <div className="rounded-2xl bg-white p-6 shadow-sm">
               <h2 className="mb-4 text-xl font-bold">
-                {t('response.translated')}
+                {t('response.title', { language: targetLabel })}
               </h2>
 
-              <div className="max-h-112.5 overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
+              <div className="max-h-[450px] overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
                 {result.response.translated}
               </div>
             </div>
@@ -137,7 +147,10 @@ export default function Compare() {
           </section>
 
           <section className="rounded-2xl bg-white p-6 shadow-sm">
-            <JudgeTable judge={result.judge} />
+            <JudgeTable
+              judge={result.judge}
+              sourceLanguage={analysisLanguage}
+            />
           </section>
         </>
       )}

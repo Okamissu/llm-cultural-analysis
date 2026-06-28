@@ -10,16 +10,22 @@ import {
   Tooltip,
 } from 'recharts'
 
-function ScoreChart({ score }) {
+function ScoreChart({ score, sourceLanguage }) {
   const { t } = useTranslation()
+
+  const sourceLabel =
+    sourceLanguage === 'pl' ? t('languages.polish') : t('languages.english')
+
+  const targetLabel =
+    sourceLanguage === 'pl' ? t('languages.english') : t('languages.polish')
 
   const data = [
     {
-      response: t('judge.original'),
+      response: sourceLabel,
       score: score.original,
     },
     {
-      response: t('judge.translated'),
+      response: targetLabel,
       score: score.translated,
     },
   ]
@@ -52,8 +58,14 @@ function ScoreChart({ score }) {
   )
 }
 
-export default function JudgeTable({ judge }) {
+export default function JudgeTable({ judge, sourceLanguage }) {
   const { t } = useTranslation()
+
+  const sourceLabel =
+    sourceLanguage === 'pl' ? t('languages.polish') : t('languages.english')
+
+  const targetLabel =
+    sourceLanguage === 'pl' ? t('languages.english') : t('languages.polish')
 
   return (
     <div className="space-y-8">
@@ -66,15 +78,21 @@ export default function JudgeTable({ judge }) {
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {Object.entries(judge.scores).map(([key, score]) => (
           <div key={key} className="rounded-xl border bg-white p-5 shadow-sm">
-            <div className="mb-3 flex items-center justify-between">
+            <div className="mb-3">
               <h4 className="font-semibold">{t(`judge.criteria.${key}`)}</h4>
 
-              <div className="text-sm text-slate-500">
-                {score.original} / {score.translated}
+              <div className="mt-1 flex justify-between text-sm text-slate-500">
+                <span>
+                  {sourceLabel}: <strong>{score.original}</strong>
+                </span>
+
+                <span>
+                  {targetLabel}: <strong>{score.translated}</strong>
+                </span>
               </div>
             </div>
 
-            <ScoreChart score={score} />
+            <ScoreChart score={score} sourceLanguage={sourceLanguage} />
           </div>
         ))}
       </div>
