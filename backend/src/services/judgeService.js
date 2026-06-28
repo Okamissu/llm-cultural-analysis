@@ -4,21 +4,29 @@ import { judgeSchema } from '../schemas/judgeSchema.js'
 
 import { buildJudgePrompt } from '../prompts/judgePrompt.js'
 
-export async function evaluateResponses({ result, uiLanguage }) {
+export async function evaluateResponses({
+  result,
+  uiLanguage,
+  sourceLanguage,
+}) {
+  const sourceName = sourceLanguage === 'pl' ? 'Polish' : 'English'
+
+  const targetName = sourceLanguage === 'pl' ? 'English' : 'Polish'
+
   const prompt = `
-Original prompt:
+Source language:
 
-${result.prompt.original}
+${sourceName}
 
-Translated prompt:
+Translated language:
 
-${result.prompt.translated}
+${targetName}
 
-Original response:
+Response in source language:
 
 ${result.response.original}
 
-Translated response:
+Response in translated language:
 
 ${result.response.translated}
 `
@@ -26,7 +34,10 @@ ${result.response.translated}
   return generateStructured({
     prompt,
 
-    systemPrompt: buildJudgePrompt(uiLanguage),
+    systemPrompt: buildJudgePrompt({
+      uiLanguage,
+      sourceLanguage,
+    }),
 
     schema: judgeSchema,
   })

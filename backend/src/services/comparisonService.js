@@ -6,6 +6,7 @@ import { getSystemPrompt } from './culturalPromptService.js'
 
 import { cosineSimilarity } from '../utils/cosineSimilarity.js'
 import { reduceEmbeddings } from '../utils/pca.js'
+import { getVisualizationLabels } from '../utils/localization.js'
 
 export async function comparePrompts({
   prompt,
@@ -14,10 +15,8 @@ export async function comparePrompts({
   culturalPrompting = false,
   temperature = 0.7,
 }) {
-  // Translation
   const translatedPrompt = await translatePrompt(prompt, sourceLanguage)
 
-  // System prompts (optional)
   const originalSystemPrompt = getSystemPrompt({
     culturalPrompting,
     language: sourceLanguage,
@@ -28,7 +27,6 @@ export async function comparePrompts({
     language: sourceLanguage === 'pl' ? 'en' : 'pl',
   })
 
-  // Responses
   const [originalResponse, translatedResponse] = await Promise.all([
     generateText({
       prompt,
@@ -43,12 +41,10 @@ export async function comparePrompts({
     }),
   ])
 
-  // Prompt embeddings
   const [promptEmbedding, translatedPromptEmbedding] = await generateEmbeddings(
     [prompt, translatedPrompt],
   )
 
-  // Response embeddings
   const [originalResponseEmbedding, translatedResponseEmbedding] =
     await generateEmbeddings([originalResponse, translatedResponse])
 
@@ -71,7 +67,6 @@ export async function comparePrompts({
     },
   }
 
-  // PCA visualization
   const visualization = reduceEmbeddings(
     [
       promptEmbedding,
@@ -79,18 +74,13 @@ export async function comparePrompts({
       originalResponseEmbedding,
       translatedResponseEmbedding,
     ],
-    [
-      `Prompt (${sourceLanguage.toUpperCase()})`,
-      `Prompt (${sourceLanguage === 'pl' ? 'EN' : 'PL'})`,
-      `Response (${sourceLanguage.toUpperCase()})`,
-      `Response (${sourceLanguage === 'pl' ? 'EN' : 'PL'})`,
-    ],
+    getVisualizationLabels(sourceLanguage, uiLanguage),
   )
 
-  // LLM-as-a-Judge
   const judge = await evaluateResponses({
     result,
     uiLanguage,
+    sourceLanguage,
   })
 
   return {
