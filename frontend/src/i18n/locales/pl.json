@@ -1,10 +1,16 @@
 {
   "navbar": {
-    "title": "Analiza kulturowa modeli LLM",
+    "title": "Analiza kulturowa LLM",
     "compare": "Porównanie",
     "history": "Historia",
     "statistics": "Statystyki",
     "about": "O aplikacji"
+  },
+  "pageTitles": {
+    "compare": "Porównanie | Analiza kulturowa LLM",
+    "history": "Historia | Analiza kulturowa LLM",
+    "statistics": "Statystyki | Analiza kulturowa LLM",
+    "about": "O projekcie | Analiza kulturowa LLM"
   },
   "language": {
     "english": "Angielski",
@@ -13,6 +19,13 @@
   "languages": {
     "polish": "Polski",
     "english": "Angielski"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "promptLanguage": "Język promptu",
+    "culturalPrompting": "Uwzględnij prompting kulturowy",
+    "culturalPromptingDescription": "Dodaje instrukcję, aby model uwzględniał kontekst kulturowy podczas generowania odpowiedzi.",
+    "temperature": "Temperatura"
   },
   "compare": {
     "title": "Porównanie wielojęzycznych odpowiedzi modeli LLM",

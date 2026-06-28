@@ -6,6 +6,12 @@
     "statistics": "Statistics",
     "about": "About"
   },
+  "pageTitles": {
+    "compare": "Compare | LLM Cultural Analysis",
+    "history": "History | LLM Cultural Analysis",
+    "statistics": "Statistics | LLM Cultural Analysis",
+    "about": "About | LLM Cultural Analysis"
+  },
   "language": {
     "english": "English",
     "polish": "Polish"
@@ -13,6 +19,13 @@
   "languages": {
     "polish": "Polish",
     "english": "English"
+  },
+  "settings": {
+    "title": "Settings",
+    "promptLanguage": "Prompt language",
+    "culturalPrompting": "Use cultural prompting",
+    "culturalPromptingDescription": "Adds an instruction for the model to consider cultural context when generating responses.",
+    "temperature": "Temperature"
   },
   "compare": {
     "title": "Compare multilingual LLM responses",
