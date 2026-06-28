@@ -1,37 +1,74 @@
 import { useState } from 'react'
-import { comparePrompt } from '../services/api'
+import { comparePrompts } from '../services/api'
 
 function Compare() {
   const [prompt, setPrompt] = useState('')
-  const [answer, setAnswer] = useState('')
+  const [result, setResult] = useState(null)
+  const [loading, setLoading] = useState(false)
 
-  async function handleCompare() {
-    const result = await comparePrompt(prompt)
+  async function handleSubmit(e) {
+    e.preventDefault()
 
-    setAnswer(result.answer)
+    setLoading(true)
+
+    const data = await comparePrompts({
+      prompt,
+      sourceLanguage: 'pl',
+      temperature: 0.7,
+    })
+
+    setResult(data)
+
+    setLoading(false)
   }
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <h1 className="text-3xl font-bold">LLM Cultural Analysis Tool</h1>
+    <>
+      <h1 className="text-3xl font-bold mb-6">LLM Cultural Analysis</h1>
 
-      <textarea
-        rows={8}
-        className="w-full border rounded-lg p-4"
-        placeholder="Enter your prompt..."
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-      />
+      <form onSubmit={handleSubmit}>
+        <textarea
+          className="w-full border rounded p-4"
+          rows={6}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+        />
 
-      <button
-        onClick={handleCompare}
-        className="px-6 py-3 rounded bg-blue-600 text-white"
-      >
-        Compare
-      </button>
+        <button className="mt-4 bg-blue-600 text-white px-6 py-2 rounded">
+          Compare
+        </button>
+      </form>
 
-      <div className="border rounded-lg p-4 min-h-32">{answer}</div>
-    </div>
+      {loading && <p className="mt-6">Loading...</p>}
+
+      {result && (
+        <div className="mt-10 space-y-6">
+          <div>
+            <h2 className="font-bold">Original prompt</h2>
+
+            <p>{result.prompt}</p>
+          </div>
+
+          <div>
+            <h2 className="font-bold">Translated prompt</h2>
+
+            <p>{result.translatedPrompt}</p>
+          </div>
+
+          <div>
+            <h2 className="font-bold">Original response</h2>
+
+            <p>{result.responses.original}</p>
+          </div>
+
+          <div>
+            <h2 className="font-bold">Translated response</h2>
+
+            <p>{result.responses.translated}</p>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
