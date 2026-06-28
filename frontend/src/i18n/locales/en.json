@@ -93,7 +93,14 @@
   },
   "statistics": {
     "title": "Statistics",
-    "description": "Aggregated results of all conducted experiments."
+    "description": "Aggregated results of all conducted experiments.",
+    "cards": {
+      "experiments": "Experiments",
+      "languages": "Directions",
+      "promptSimilarity": "Avg. Prompt Similarity",
+      "responseSimilarity": "Avg. Response Similarity",
+      "culturalPrompting": "Cultural Prompting"
+    }
   },
   "common": {
     "loading": "Loading...",

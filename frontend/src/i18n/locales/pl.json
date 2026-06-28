@@ -93,7 +93,14 @@
   },
   "statistics": {
     "title": "Statystyki",
-    "description": "Zagregowane wyniki wszystkich przeprowadzonych eksperymentów."
+    "description": "Zagregowane wyniki wszystkich przeprowadzonych eksperymentów.",
+    "cards": {
+      "experiments": "Eksperymenty",
+      "languages": "Kierunki",
+      "promptSimilarity": "Śr. podobieństwo promptów",
+      "responseSimilarity": "Śr. podobieństwo odpowiedzi",
+      "culturalPrompting": "Prompting kulturowy"
+    }
   },
   "common": {
     "loading": "Ładowanie...",
