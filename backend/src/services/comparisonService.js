@@ -8,6 +8,9 @@ import { cosineSimilarity } from '../utils/cosineSimilarity.js'
 import { reduceEmbeddings } from '../utils/pca.js'
 import { getVisualizationLabels } from '../utils/localization.js'
 
+import ExperimentRepository from '../repositories/ experimentRepository.js'
+import { mapExperimentToPrisma } from '../mappers/experimentMapper.js'
+
 export async function comparePrompts({
   prompt,
   sourceLanguage = 'pl',
@@ -83,16 +86,27 @@ export async function comparePrompts({
     sourceLanguage,
   })
 
+  const settings = {
+    sourceLanguage,
+    uiLanguage,
+    culturalPrompting,
+    temperature,
+  }
+
+  await ExperimentRepository.save(
+    mapExperimentToPrisma({
+      result: {
+        ...result,
+        judge,
+      },
+      settings,
+    }),
+  )
+
   return {
     ...result,
     visualization,
     judge,
-
-    settings: {
-      sourceLanguage,
-      uiLanguage,
-      culturalPrompting,
-      temperature,
-    },
+    settings,
   }
 }
