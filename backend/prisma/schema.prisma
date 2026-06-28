@@ -6,3 +6,79 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Experiment {
+  id                  Int       @id @default(autoincrement())
+  createdAt           DateTime  @default(now()) @map("created_at")
+
+  sourceLanguage      String    @map("source_language")
+  targetLanguage      String    @map("target_language")
+
+  model               String
+
+  temperature         Decimal   @db.Decimal(3,2)
+  culturalPrompting   Boolean   @map("cultural_prompting")
+
+  promptSimilarity    Decimal   @db.Decimal(6,5) @map("prompt_similarity")
+  responseSimilarity  Decimal   @db.Decimal(6,5) @map("response_similarity")
+
+  prompts             Prompt[]
+  responses           Response[]
+  evaluation          Evaluation?
+
+  @@map("experiment")
+}
+
+model Prompt {
+  id            Int         @id @default(autoincrement())
+
+  experimentId  Int         @map("experiment_id")
+  experiment    Experiment  @relation(fields: [experimentId], references: [id], onDelete: Cascade)
+
+  language      String
+  promptType    String      @map("prompt_type")
+
+  content       String      @db.LongText
+
+  @@map("prompt")
+}
+
+model Response {
+  id            Int         @id @default(autoincrement())
+
+  experimentId  Int         @map("experiment_id")
+  experiment    Experiment  @relation(fields: [experimentId], references: [id], onDelete: Cascade)
+
+  language      String
+
+  content       String      @db.LongText
+
+  @@map("response")
+}
+
+model Evaluation {
+  id                          Int         @id @default(autoincrement())
+
+  experimentId                Int         @unique @map("experiment_id")
+  experiment                  Experiment  @relation(fields: [experimentId], references: [id], onDelete: Cascade)
+
+  naturalnessOriginal         Decimal @db.Decimal(3,1) @map("naturalness_original")
+  naturalnessTranslated       Decimal @db.Decimal(3,1) @map("naturalness_translated")
+
+  precisionOriginal           Decimal @db.Decimal(3,1) @map("precision_original")
+  precisionTranslated         Decimal @db.Decimal(3,1) @map("precision_translated")
+
+  detailOriginal              Decimal @db.Decimal(3,1) @map("detail_original")
+  detailTranslated            Decimal @db.Decimal(3,1) @map("detail_translated")
+
+  culturalContextOriginal     Decimal @db.Decimal(3,1) @map("cultural_context_original")
+  culturalContextTranslated   Decimal @db.Decimal(3,1) @map("cultural_context_translated")
+
+  toneOriginal                Decimal @db.Decimal(3,1) @map("tone_original")
+  toneTranslated              Decimal @db.Decimal(3,1) @map("tone_translated")
+
+  summary                     String @db.LongText
+  observations                Json
+
+  @@map("evaluation")
+}
