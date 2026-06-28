@@ -117,7 +117,7 @@ export default function Compare() {
                 {t('response.title', { language: sourceLabel })}
               </h2>
 
-              <div className="max-h-[450px] overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
+              <div className="max-h-112.5 overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
                 {result.response.original}
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function Compare() {
                 {t('response.title', { language: targetLabel })}
               </h2>
 
-              <div className="max-h-[450px] overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
+              <div className="max-h-112.5 overflow-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-4 font-mono text-sm">
                 {result.response.translated}
               </div>
             </div>
