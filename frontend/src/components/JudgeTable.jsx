@@ -7,7 +7,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
 } from 'recharts'
 
 function ScoreChart({ score, sourceLanguage }) {
@@ -48,8 +47,6 @@ function ScoreChart({ score, sourceLanguage }) {
           <XAxis type="number" domain={[0, 10]} />
 
           <YAxis type="category" dataKey="response" width={90} />
-
-          <Tooltip />
 
           <Bar dataKey="score" radius={[6, 6, 6, 6]} />
         </BarChart>
