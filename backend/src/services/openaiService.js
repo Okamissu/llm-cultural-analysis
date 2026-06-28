@@ -11,6 +11,24 @@ export async function generateText(prompt, options = {}) {
   return response.output_text
 }
 
+export async function generateStructured(prompt, schema) {
+  const response = await client.responses.create({
+    model: OPENAI_MODEL,
+
+    input: prompt,
+
+    text: {
+      format: {
+        type: 'json_schema',
+        name: schema.name,
+        schema: schema.schema,
+      },
+    },
+  })
+
+  return JSON.parse(response.output_text)
+}
+
 export async function createEmbedding(text) {
   const response = await client.embeddings.create({
     model: OPENAI_EMBEDDING_MODEL,
