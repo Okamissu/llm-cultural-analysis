@@ -4,9 +4,9 @@ import Navbar from './components/Navbar'
 
 import Compare from './pages/Compare'
 import History from './pages/History'
-import Experiment from './pages/Experiment'
 import Statistics from './pages/Statistics'
 import About from './pages/About'
+import ExperimentDetails from './pages/ExperimentDetails'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<Compare />} />
 
           <Route path="/history" element={<History />} />
-          <Route path="/history/:id" element={<Experiment />} />
+          <Route path="/history/:id" element={<ExperimentDetails />} />
 
           <Route path="/statistics" element={<Statistics />} />
 

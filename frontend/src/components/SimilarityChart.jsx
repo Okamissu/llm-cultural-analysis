@@ -50,7 +50,7 @@ export default function SimilarityChart({
         value={responseSimilarity}
       />
 
-      <div className="rounded-xl border bg-slate-50 p-4">
+      <div className="rounded-xl border bg-slate-50 p-4 w-fit">
         <h4 className="mb-3 text-sm font-semibold text-slate-700">
           {t('similarity.interpretation')}
         </h4>

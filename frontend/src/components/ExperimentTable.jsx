@@ -14,7 +14,7 @@ export default function ExperimentTable({ experiments }) {
   return (
     <>
       <div className="overflow-x-auto rounded-2xl bg-white shadow-sm">
-        <table className="w-full min-w-[1050px]">
+        <table className="w-full min-w-262.5">
           <thead className="bg-slate-100 text-left text-sm uppercase tracking-wide text-slate-600">
             <tr>
               <th className="px-5 py-4">{t('history.date')}</th>

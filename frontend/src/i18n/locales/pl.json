@@ -86,7 +86,10 @@
     "cultural": "Kulturowy",
     "promptSimilarity": "Pod. promptów",
     "responseSimilarity": "Pod. odpowiedzi",
-    "detailsHint": "Kliknij wiersz tabeli, aby wyświetlić szczegóły eksperymentu."
+    "detailsHint": "Kliknij wiersz tabeli, aby wyświetlić szczegóły eksperymentu.",
+    "back": "Powrót do historii",
+    "experiment": "Eksperyment",
+    "settings": "Parametry eksperymentu"
   },
   "common": {
     "loading": "Ładowanie...",

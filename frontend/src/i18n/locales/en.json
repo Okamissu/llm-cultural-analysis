@@ -86,7 +86,10 @@
     "cultural": "Cultural",
     "promptSimilarity": "Prompt Sim.",
     "responseSimilarity": "Response Sim.",
-    "detailsHint": "Click a table row to view experiment details."
+    "detailsHint": "Click a table row to view experiment details.",
+    "back": "Back to history",
+    "experiment": "Experiment",
+    "settings": "Experiment settings"
   },
   "common": {
     "loading": "Loading...",
