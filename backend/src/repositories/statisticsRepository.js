@@ -19,6 +19,11 @@ class StatisticsRepository {
     const statistics = {
       totalExperiments: experiments.length,
 
+      languages: {
+        PL_EN: 0,
+        EN_PL: 0,
+      },
+
       culturalPrompting: {
         enabled: 0,
         disabled: 0,
@@ -80,6 +85,12 @@ class StatisticsRepository {
     statistics.similarity.responseMax = -Infinity
 
     for (const experiment of experiments) {
+      const direction = `${experiment.sourceLanguage}_${experiment.targetLanguage}`
+
+      if (direction in statistics.languages) {
+        statistics.languages[direction]++
+      }
+
       if (experiment.culturalPrompting) statistics.culturalPrompting.enabled++
       else statistics.culturalPrompting.disabled++
 
