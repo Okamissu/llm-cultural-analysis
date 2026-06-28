@@ -18,6 +18,10 @@ class ExperimentRepository {
       orderBy: {
         createdAt: 'desc',
       },
+
+      include: {
+        evaluation: true,
+      },
     })
   }
 
@@ -35,12 +39,30 @@ class ExperimentRepository {
     })
   }
 
+  async findAllWithRelations() {
+    return prisma.experiment.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+
+      include: {
+        prompts: true,
+        responses: true,
+        evaluation: true,
+      },
+    })
+  }
+
   async delete(id) {
     return prisma.experiment.delete({
       where: {
         id,
       },
     })
+  }
+
+  async deleteAll() {
+    return prisma.experiment.deleteMany()
   }
 }
 
