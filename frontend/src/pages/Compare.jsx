@@ -1,15 +1,15 @@
 import { useState } from 'react'
 
-import { comparePrompts } from '../services/api'
-
 import SimilarityChart from '../components/SimilarityChart'
 import JudgeTable from '../components/JudgeTable'
 import EmbeddingPlot from '../components/EmbeddingPlot'
 
+import { comparePrompts } from '../services/api'
+
 export default function Compare() {
   const [prompt, setPrompt] = useState('')
-  const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [result, setResult] = useState(null)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -19,118 +19,104 @@ export default function Compare() {
     setLoading(true)
 
     try {
-      const data = await comparePrompts({
+      const response = await comparePrompts({
         prompt,
         sourceLanguage: 'pl',
       })
 
-      setResult(data)
-    } catch (err) {
-      console.error(err)
+      setResult(response)
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="space-y-10">
-      <header>
-        <h1 className="text-3xl font-bold">LLM Cultural Analysis Tool</h1>
+    <div className="mx-auto max-w-7xl space-y-10">
+      <section className="rounded-2xl bg-white p-8 shadow-sm">
+        <h1 className="text-4xl font-bold tracking-tight">
+          Compare multilingual LLM responses
+        </h1>
 
-        <p className="mt-2 text-gray-600">
-          Compare multilingual GPT responses using embeddings, cosine similarity
-          and LLM-as-a-Judge.
+        <p className="mt-3 max-w-2xl text-slate-600">
+          Evaluate semantic similarity, embedding projections and cultural
+          differences between GPT responses.
         </p>
-      </header>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <textarea
-          className="w-full rounded-lg border p-4"
-          rows={5}
-          placeholder="Enter your prompt..."
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-        />
+        <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+          <textarea
+            rows={6}
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            placeholder="Enter your prompt..."
+            className="w-full rounded-xl border bg-slate-50 p-5 outline-none transition focus:border-slate-800"
+          />
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="rounded-lg bg-black px-6 py-3 text-white disabled:opacity-50"
-        >
-          {loading ? 'Comparing...' : 'Compare'}
-        </button>
-      </form>
+          <button
+            disabled={loading}
+            className="rounded-xl bg-slate-900 px-6 py-3 font-medium text-white transition hover:bg-slate-800 disabled:opacity-50"
+          >
+            {loading ? 'Analyzing...' : 'Analyze'}
+          </button>
+        </form>
+      </section>
 
       {result && (
-        <div className="space-y-8">
-          {/* Prompt */}
+        <>
+          <section className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold">Original Prompt</h2>
 
-          <section className="rounded-xl border p-6">
-            <h2 className="mb-6 text-2xl font-bold">Prompt</h2>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <h3 className="mb-2 font-semibold">Original</h3>
-
-                <div className="rounded-lg bg-gray-50 p-4 whitespace-pre-wrap">
-                  {result.prompt.original}
-                </div>
+              <div className="rounded-lg bg-slate-50 p-4 whitespace-pre-wrap">
+                {result.prompt.original}
               </div>
+            </div>
 
-              <div>
-                <h3 className="mb-2 font-semibold">Translated</h3>
+            <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold">Translated Prompt</h2>
 
-                <div className="rounded-lg bg-gray-50 p-4 whitespace-pre-wrap">
-                  {result.prompt.translated}
-                </div>
+              <div className="rounded-lg bg-slate-50 p-4 whitespace-pre-wrap">
+                {result.prompt.translated}
               </div>
             </div>
           </section>
 
-          {/* Responses */}
+          <section className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold">Original Response</h2>
 
-          <section className="rounded-xl border p-6">
-            <h2 className="mb-6 text-2xl font-bold">Responses</h2>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <h3 className="mb-2 font-semibold">Original</h3>
-
-                <div className="rounded-lg bg-gray-50 p-4 whitespace-pre-wrap max-h-[500px] overflow-auto">
-                  {result.response.original}
-                </div>
+              <div className="max-h-112.5 overflow-auto rounded-lg bg-slate-50 p-4 font-mono text-sm whitespace-pre-wrap">
+                {result.response.original}
               </div>
+            </div>
 
-              <div>
-                <h3 className="mb-2 font-semibold">Translated</h3>
+            <div className="rounded-2xl bg-white p-6 shadow-sm">
+              <h2 className="mb-4 text-xl font-bold">Translated Response</h2>
 
-                <div className="rounded-lg bg-gray-50 p-4 whitespace-pre-wrap max-h-[500px] overflow-auto">
-                  {result.response.translated}
-                </div>
+              <div className="max-h-112.5 overflow-auto rounded-lg bg-slate-50 p-4 font-mono text-sm whitespace-pre-wrap">
+                {result.response.translated}
               </div>
             </div>
           </section>
 
-          {/* Analysis */}
-
-          <section>
-            <h2 className="mb-6 text-2xl font-bold">Analysis</h2>
-
-            <div className="grid gap-6 lg:grid-cols-2">
-              <div className="rounded-xl border p-6">
+          <>
+            <section className="grid gap-6 lg:grid-cols-2">
+              <div className="rounded-2xl bg-white p-6 shadow-sm">
                 <SimilarityChart
                   promptSimilarity={result.prompt.similarity}
                   responseSimilarity={result.response.similarity}
                 />
-                <EmbeddingPlot data={result.visualization} />
               </div>
 
-              <div className="rounded-xl border p-6">
-                <JudgeTable judge={result.judge} />
+              <div className="rounded-2xl bg-white p-6 shadow-sm">
+                <EmbeddingPlot data={result.visualization} />
               </div>
-            </div>
-          </section>
-        </div>
+            </section>
+
+            <section className="rounded-2xl bg-white p-6 shadow-sm">
+              <JudgeTable judge={result.judge} />
+            </section>
+          </>
+        </>
       )}
     </div>
   )

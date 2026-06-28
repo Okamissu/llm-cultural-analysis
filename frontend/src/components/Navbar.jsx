@@ -1,17 +1,50 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-function Navbar() {
+const links = [
+  {
+    to: '/',
+    label: 'Compare',
+  },
+  {
+    to: '/history',
+    label: 'History',
+  },
+  {
+    to: '/statistics',
+    label: 'Statistics',
+  },
+  {
+    to: '/about',
+    label: 'About',
+  },
+]
+
+export default function Navbar() {
   return (
-    <nav className="bg-slate-900 text-white px-8 py-4 flex gap-6">
-      <Link to="/">Compare</Link>
+    <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
+        <h1 className="text-xl font-bold tracking-tight">
+          LLM Cultural Analysis
+        </h1>
 
-      <Link to="/history">History</Link>
-
-      <Link to="/statistics">Statistics</Link>
-
-      <Link to="/about">About</Link>
-    </nav>
+        <div className="flex gap-2">
+          {links.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `rounded-lg px-4 py-2 text-sm font-medium transition ${
+                  isActive
+                    ? 'bg-slate-900 text-white'
+                    : 'text-slate-600 hover:bg-slate-100'
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
+        </div>
+      </nav>
+    </header>
   )
 }
-
-export default Navbar
