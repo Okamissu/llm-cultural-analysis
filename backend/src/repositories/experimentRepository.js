@@ -19,8 +19,32 @@ class ExperimentRepository {
         createdAt: 'desc',
       },
 
-      include: {
-        evaluation: true,
+      select: {
+        id: true,
+        createdAt: true,
+
+        sourceLanguage: true,
+        targetLanguage: true,
+
+        llmModel: true,
+
+        temperature: true,
+        culturalPrompting: true,
+
+        promptSimilarity: true,
+        responseSimilarity: true,
+
+        prompts: {
+          where: {
+            promptType: 'ORIGINAL',
+          },
+
+          select: {
+            content: true,
+          },
+
+          take: 1,
+        },
       },
     })
   }
