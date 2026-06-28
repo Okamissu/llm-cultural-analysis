@@ -126,6 +126,21 @@
     "heatmapDescription": "Porównanie średnich ocen odpowiedzi wygenerowanych w języku polskim i angielskim.",
     "criterion": "Kryterium"
   },
+  "about": {
+    "title": "O aplikacji",
+    "description": "Informacje o projekcie, zastosowanych technologiach oraz autorze.",
+    "projectTitle": "Analiza kulturowa odpowiedzi wielkich modeli językowych",
+    "projectParagraph1": "Aplikacja została opracowana jako narzędzie wspierające analizę wpływu kontekstu kulturowego na odpowiedzi generowane przez wielkie modele językowe (LLM). Umożliwia porównanie odpowiedzi wygenerowanych dla tego samego zapytania w języku polskim i angielskim oraz ocenę różnic pod względem jakości, podobieństwa semantycznego i aspektów kulturowych.",
+    "projectParagraph2": "Proces analizy obejmuje automatyczne tłumaczenie promptów, generowanie odpowiedzi w obu językach, obliczanie podobieństwa embeddingów, ocenę odpowiedzi z wykorzystaniem modelu LLM pełniącego rolę sędziego (LLM-as-a-Judge) oraz wizualizację wyników i statystyk przeprowadzonych eksperymentów.",
+    "projectParagraph3": "Aplikacja została zaimplementowana jako serwis internetowy z wykorzystaniem architektury klient–serwer. Warstwa frontendowa została wykonana z użyciem React, natomiast backend oparto na środowisku Node.js i frameworku Express. Dane przechowywane są w relacyjnej bazie danych zarządzanej za pomocą Prisma ORM.",
+    "technologies": "Wykorzystane technologie",
+    "author": "Autor",
+    "name": "Autor",
+    "supervisor": "Promotor",
+    "thesis": "Informacja o pracy magisterskiej",
+    "thesisAuthor": "Autorem niniejszego serwisu jest <strong>Kamil Kobylarz</strong>.",
+    "thesisDescription": "Serwis ten stanowi integralną część pracy magisterskiej (kierunek: <strong>Elektroniczne Przetwarzanie Informacji</strong>), przygotowanej pod kierunkiem <strong>prof. dr hab. Mariusza Flasińskiego</strong> na Wydziale Zarządzania i Komunikacji Społecznej Uniwersytetu Jagiellońskiego."
+  },
   "common": {
     "loading": "Ładowanie...",
     "enabled": "TAK",
