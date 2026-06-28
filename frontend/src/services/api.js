@@ -1,16 +1,22 @@
 const API_URL = 'http://localhost:3000/api'
 
-export async function comparePrompts(data) {
-  const response = await fetch(`${API_URL}/compare`, {
-    method: 'POST',
+export async function api(path, options = {}) {
+  const response = await fetch(`${API_URL}${path}`, {
     headers: {
       'Content-Type': 'application/json',
+      ...options.headers,
     },
-    body: JSON.stringify(data),
+    ...options,
   })
 
   if (!response.ok) {
-    throw new Error('Request failed')
+    const error = await response.json().catch(() => null)
+
+    throw new Error(error?.error ?? 'Request failed')
+  }
+
+  if (response.status === 204) {
+    return null
   }
 
   return response.json()

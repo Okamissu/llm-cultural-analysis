@@ -6,7 +6,7 @@ import JudgeTable from '../components/JudgeTable'
 import EmbeddingPlot from '../components/EmbeddingPlot'
 import SettingsPanel from '../components/SettingsPanel'
 
-import { comparePrompts } from '../services/api'
+import { comparePrompts } from '../services/compareApi'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function Compare() {
