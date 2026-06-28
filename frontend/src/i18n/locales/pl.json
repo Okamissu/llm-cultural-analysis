@@ -91,6 +91,10 @@
     "experiment": "Eksperyment",
     "settings": "Parametry eksperymentu"
   },
+  "statistics": {
+    "title": "Statystyki",
+    "description": "Zagregowane wyniki wszystkich przeprowadzonych eksperymentów."
+  },
   "common": {
     "loading": "Ładowanie...",
     "enabled": "TAK",

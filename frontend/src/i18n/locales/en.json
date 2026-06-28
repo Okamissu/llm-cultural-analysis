@@ -91,6 +91,10 @@
     "experiment": "Experiment",
     "settings": "Experiment settings"
   },
+  "statistics": {
+    "title": "Statistics",
+    "description": "Aggregated results of all conducted experiments."
+  },
   "common": {
     "loading": "Loading...",
     "enabled": "ON",
