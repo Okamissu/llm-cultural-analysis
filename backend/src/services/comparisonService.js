@@ -8,7 +8,7 @@ import { cosineSimilarity } from '../utils/cosineSimilarity.js'
 import { reduceEmbeddings } from '../utils/pca.js'
 import { getVisualizationLabels } from '../utils/localization.js'
 
-import ExperimentRepository from '../repositories/ experimentRepository.js'
+import ExperimentRepository from '../repositories/experimentRepository.js'
 import { mapExperimentToPrisma } from '../mappers/experimentMapper.js'
 
 export async function comparePrompts({
