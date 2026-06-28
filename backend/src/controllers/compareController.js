@@ -1,16 +1,10 @@
-import { generateResponse } from '../services/openaiService.js'
+import { comparePrompts } from '../services/comparisonService.js'
 
 export async function compare(req, res) {
   try {
-    const { prompt } = req.body
+    const result = await comparePrompts(req.body)
 
-    const answer = await generateResponse(prompt)
-
-    res.json({
-      success: true,
-      prompt,
-      answer,
-    })
+    res.json(result)
   } catch (error) {
     console.error(error)
 
