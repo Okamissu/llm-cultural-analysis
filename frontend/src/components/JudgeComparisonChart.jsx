@@ -72,9 +72,9 @@ export default function JudgeComparisonChart({ statistics }) {
 
             <Legend />
 
-            <Bar dataKey="PL" radius={[4, 4, 4, 4]} />
+            <Bar dataKey="PL" fill="#5e1c1c" radius={[4, 4, 4, 4]} />
 
-            <Bar dataKey="EN" radius={[4, 4, 4, 4]} />
+            <Bar dataKey="EN" fill="#26344a" radius={[4, 4, 4, 4]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

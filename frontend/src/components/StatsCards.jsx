@@ -3,6 +3,14 @@ import { useTranslation } from 'react-i18next'
 export default function StatsCards({ statistics }) {
   const { t } = useTranslation()
 
+  const averageTemperature =
+    statistics.temperatures.length > 0
+      ? (
+          statistics.temperatures.reduce((sum, value) => sum + value, 0) /
+          statistics.temperatures.length
+        ).toFixed(2)
+      : '-'
+
   const cards = [
     {
       title: t('statistics.cards.experiments'),
@@ -46,21 +54,24 @@ export default function StatsCards({ statistics }) {
         </div>
       ),
     },
+    {
+      title: t('statistics.cards.averageTemperature'),
+      value: averageTemperature,
+    },
   ]
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+    <div className="grid gap-6 grid-cols-2 md:grid-cols-3">
       {cards.map((card) => (
-        <div key={card.title} className="rounded-2xl bg-white p-6 shadow-sm">
+        <div
+          key={card.title}
+          className="rounded-2xl bg-white px-6 py-4 shadow-sm"
+        >
           <div className="text-sm font-medium uppercase tracking-wide text-slate-500">
             {card.title}
           </div>
 
-          <div className="mt-4 text-3xl font-bold">
-            {typeof card.value === 'string' || typeof card.value === 'number'
-              ? card.value
-              : card.value}
-          </div>
+          <div className="mt-4 text-xl font-bold">{card.value}</div>
         </div>
       ))}
     </div>

@@ -4,6 +4,7 @@ import {
   ResponsiveContainer,
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -11,6 +12,9 @@ import {
 
 function ScoreChart({ score, sourceLanguage }) {
   const { t } = useTranslation()
+
+  const colors =
+    sourceLanguage === 'pl' ? ['#5e1c1c', '#26344a'] : ['#26344a', '#5e1c1c']
 
   const sourceLabel =
     sourceLanguage === 'pl' ? t('languages.polish') : t('languages.english')
@@ -48,7 +52,11 @@ function ScoreChart({ score, sourceLanguage }) {
 
           <YAxis type="category" dataKey="response" width={90} />
 
-          <Bar dataKey="score" radius={[6, 6, 6, 6]} />
+          <Bar dataKey="score" radius={[6, 6, 6, 6]}>
+            {data.map((_, index) => (
+              <Cell key={index} fill={colors[index]} />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>
