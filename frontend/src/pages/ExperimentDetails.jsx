@@ -98,13 +98,20 @@ export default function ExperimentDetails() {
 
   return (
     <div className="space-y-8">
-      <Link
-        to="/history"
-        className="inline-flex items-center text-sm text-slate-500 transition hover:text-slate-900"
-      >
-        ← {t('history.back')}
-      </Link>
-
+      <span className="flex justify-between">
+        <Link
+          to="/history"
+          className="inline-flex items-center text-sm text-slate-500 transition hover:text-slate-900"
+        >
+          ← {t('history.back')}
+        </Link>
+        <Link
+          to="/statistics"
+          className="inline-flex items-center text-sm text-slate-500 transition hover:text-slate-900"
+        >
+          {t('history.backStats')} →
+        </Link>
+      </span>
       <section className="rounded-2xl bg-white px-8 py-4 shadow-sm w-fit">
         <h1 className="text-2xl font-bold">
           {t('history.experiment')} #{experiment.id}

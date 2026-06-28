@@ -88,6 +88,7 @@
     "responseSimilarity": "Pod. odpowiedzi",
     "detailsHint": "Kliknij wiersz tabeli, aby wyświetlić szczegóły eksperymentu.",
     "back": "Powrót do historii",
+    "backStats": "Powrót do statystyk",
     "experiment": "Eksperyment",
     "settings": "Parametry eksperymentu"
   },
