@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 import {
   ResponsiveContainer,
   ScatterChart,
@@ -10,13 +12,15 @@ import {
 } from 'recharts'
 
 export default function EmbeddingPlot({ data }) {
+  const { t } = useTranslation()
+
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-lg font-semibold">Embedding Projection (PCA)</h3>
+        <h3 className="text-lg font-semibold">{t('embedding.title')}</h3>
 
         <p className="mt-1 text-sm text-slate-500">
-          Two-dimensional projection of prompt and response embeddings.
+          {t('embedding.description')}
         </p>
       </div>
 
@@ -32,9 +36,9 @@ export default function EmbeddingPlot({ data }) {
           >
             <CartesianGrid strokeDasharray="3 3" />
 
-            <XAxis type="number" dataKey="x" name="PCA 1" />
+            <XAxis type="number" dataKey="x" name={t('embedding.axisX')} />
 
-            <YAxis type="number" dataKey="y" name="PCA 2" />
+            <YAxis type="number" dataKey="y" name={t('embedding.axisY')} />
 
             <Tooltip
               cursor={{ strokeDasharray: '3 3' }}

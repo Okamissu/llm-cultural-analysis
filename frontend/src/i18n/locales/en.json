@@ -1,0 +1,68 @@
+{
+  "navbar": {
+    "title": "LLM Cultural Analysis",
+    "compare": "Compare",
+    "history": "History",
+    "statistics": "Statistics",
+    "about": "About"
+  },
+  "language": {
+    "english": "English",
+    "polish": "Polish"
+  },
+  "languages": {
+    "polish": "Polish",
+    "english": "English"
+  },
+  "compare": {
+    "title": "Compare multilingual LLM responses",
+    "description": "Evaluate semantic similarity, embedding projections and cultural differences between GPT responses.",
+    "placeholder": "Enter your prompt...",
+    "analyze": "Analyze",
+    "analyzing": "Analyzing...",
+    "sourceLanguage": "Prompt language",
+    "translationDirection": "Translation direction"
+  },
+  "prompt": {
+    "original": "Original Prompt",
+    "translated": "Translated Prompt"
+  },
+  "response": {
+    "original": "Original Response",
+    "translated": "Translated Response"
+  },
+  "embedding": {
+    "title": "Embedding Projection (PCA)",
+    "description": "Two-dimensional projection of prompt and response embeddings.",
+    "axisX": "PCA 1",
+    "axisY": "PCA 2"
+  },
+  "judge": {
+    "title": "LLM-as-a-Judge",
+    "description": "Automatic comparison of generated responses.",
+    "original": "Original",
+    "translated": "Translated",
+    "summary": "Summary",
+    "observations": "Observations",
+    "criteria": {
+      "naturalness": "Naturalness",
+      "precision": "Precision",
+      "detail": "Level of Detail",
+      "culturalContext": "Cultural Context",
+      "tone": "Tone"
+    }
+  },
+  "similarity": {
+    "title": "Semantic Similarity",
+    "description": "Cosine similarity between embedding vectors. Values closer to 1 indicate greater semantic similarity.",
+    "prompt": "Prompt",
+    "response": "Response",
+    "interpretation": "Interpretation",
+    "scale": {
+      "identical": "1.0 — nearly identical semantic representations",
+      "high": "0.8–0.99 — highly similar",
+      "moderate": "0.5–0.8 — moderately similar",
+      "low": "< 0.5 — substantially different"
+    }
+  }
+}

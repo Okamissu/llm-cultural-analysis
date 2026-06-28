@@ -1,10 +1,14 @@
-function SimilarityBar({ label, value }) {
+import { useTranslation } from 'react-i18next'
+
+function SimilarityBar({ labelKey, value }) {
+  const { t } = useTranslation()
+
   const percentage = value * 100
 
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <span className="font-medium">{label}</span>
+        <span className="font-medium">{t(labelKey)}</span>
 
         <span className="font-mono text-sm font-semibold">
           {value.toFixed(3)}
@@ -27,42 +31,38 @@ export default function SimilarityChart({
   promptSimilarity,
   responseSimilarity,
 }) {
+  const { t } = useTranslation()
+
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-xl font-semibold">Semantic Similarity</h3>
+        <h3 className="text-xl font-semibold">{t('similarity.title')}</h3>
 
         <p className="mt-1 text-sm text-slate-500">
-          Cosine similarity between embedding vectors. Values closer to 1
-          indicate greater semantic similarity.
+          {t('similarity.description')}
         </p>
       </div>
 
-      <SimilarityBar label="Prompt" value={promptSimilarity} />
+      <SimilarityBar labelKey="similarity.prompt" value={promptSimilarity} />
 
-      <SimilarityBar label="Response" value={responseSimilarity} />
+      <SimilarityBar
+        labelKey="similarity.response"
+        value={responseSimilarity}
+      />
 
       <div className="rounded-xl border bg-slate-50 p-4">
         <h4 className="mb-3 text-sm font-semibold text-slate-700">
-          Interpretation
+          {t('similarity.interpretation')}
         </h4>
 
         <ul className="space-y-2 text-sm text-slate-600">
-          <li>
-            <strong>1.0</strong> — nearly identical semantic representations
-          </li>
+          <li>{t('similarity.scale.identical')}</li>
 
-          <li>
-            <strong>0.8–0.99</strong> — highly similar
-          </li>
+          <li>{t('similarity.scale.high')}</li>
 
-          <li>
-            <strong>0.5–0.8</strong> — moderately similar
-          </li>
+          <li>{t('similarity.scale.moderate')}</li>
 
-          <li>
-            <strong>&lt; 0.5</strong> — substantially different
-          </li>
+          <li>{t('similarity.scale.low')}</li>
         </ul>
       </div>
     </div>

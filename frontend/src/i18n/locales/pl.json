@@ -1,0 +1,68 @@
+{
+  "navbar": {
+    "title": "Analiza kulturowa modeli LLM",
+    "compare": "Porównanie",
+    "history": "Historia",
+    "statistics": "Statystyki",
+    "about": "O aplikacji"
+  },
+  "language": {
+    "english": "Angielski",
+    "polish": "Polski"
+  },
+  "languages": {
+    "polish": "Polski",
+    "english": "Angielski"
+  },
+  "compare": {
+    "title": "Porównanie wielojęzycznych odpowiedzi modeli LLM",
+    "description": "Analiza podobieństwa semantycznego, projekcji embeddingów oraz różnic kulturowych pomiędzy odpowiedziami modeli GPT.",
+    "placeholder": "Wprowadź prompt...",
+    "analyze": "Analizuj",
+    "analyzing": "Analizowanie...",
+    "sourceLanguage": "Język promptu",
+    "translationDirection": "Kierunek tłumaczenia"
+  },
+  "prompt": {
+    "original": "Oryginalny prompt",
+    "translated": "Przetłumaczony prompt"
+  },
+  "response": {
+    "original": "Oryginalna odpowiedź",
+    "translated": "Przetłumaczona odpowiedź"
+  },
+  "embedding": {
+    "title": "Projekcja embeddingów (PCA)",
+    "description": "Dwuwymiarowa projekcja embeddingów promptów i odpowiedzi.",
+    "axisX": "PCA 1",
+    "axisY": "PCA 2"
+  },
+  "judge": {
+    "title": "LLM jako ewaluator",
+    "description": "Automatyczna ocena wygenerowanych odpowiedzi.",
+    "original": "Oryginał",
+    "translated": "Tłumaczenie",
+    "summary": "Podsumowanie",
+    "observations": "Obserwacje",
+    "criteria": {
+      "naturalness": "Naturalność",
+      "precision": "Precyzja",
+      "detail": "Poziom szczegółowości",
+      "culturalContext": "Kontekst kulturowy",
+      "tone": "Ton wypowiedzi"
+    }
+  },
+  "similarity": {
+    "title": "Podobieństwo semantyczne",
+    "description": "Podobieństwo cosinusowe między wektorami embeddingów. Wartości bliższe 1 oznaczają większe podobieństwo semantyczne.",
+    "prompt": "Prompt",
+    "response": "Odpowiedź",
+    "interpretation": "Interpretacja",
+    "scale": {
+      "identical": "1,0 — niemal identyczne reprezentacje semantyczne",
+      "high": "0,8–0,99 — wysokie podobieństwo",
+      "moderate": "0,5–0,8 — umiarkowane podobieństwo",
+      "low": "< 0,5 — istotne różnice semantyczne"
+    }
+  }
+}
