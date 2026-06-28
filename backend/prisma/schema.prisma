@@ -7,20 +7,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Language {
+  PL
+  EN
+}
+
+enum PromptType {
+  ORIGINAL
+  TRANSLATED
+}
+
 model Experiment {
-  id                  Int       @id @default(autoincrement())
-  createdAt           DateTime  @default(now()) @map("created_at")
+  id                  Int      @id @default(autoincrement())
+  createdAt           DateTime @default(now()) @map("created_at")
 
-  sourceLanguage      String    @map("source_language")
-  targetLanguage      String    @map("target_language")
+  sourceLanguage      Language @map("source_language")
+  targetLanguage      Language @map("target_language")
 
-  model               String
+  llmModel            String   @map("model")
 
-  temperature         Decimal   @db.Decimal(3,2)
-  culturalPrompting   Boolean   @map("cultural_prompting")
+  temperature         Decimal  @db.Decimal(3,2)
+  culturalPrompting   Boolean  @map("cultural_prompting")
 
-  promptSimilarity    Decimal   @db.Decimal(6,5) @map("prompt_similarity")
-  responseSimilarity  Decimal   @db.Decimal(6,5) @map("response_similarity")
+  promptSimilarity    Decimal  @db.Decimal(6,5) @map("prompt_similarity")
+  responseSimilarity  Decimal  @db.Decimal(6,5) @map("response_similarity")
 
   prompts             Prompt[]
   responses           Response[]
@@ -35,8 +45,8 @@ model Prompt {
   experimentId  Int         @map("experiment_id")
   experiment    Experiment  @relation(fields: [experimentId], references: [id], onDelete: Cascade)
 
-  language      String
-  promptType    String      @map("prompt_type")
+  language      Language
+  promptType    PromptType  @map("prompt_type")
 
   content       String      @db.LongText
 
@@ -49,7 +59,7 @@ model Response {
   experimentId  Int         @map("experiment_id")
   experiment    Experiment  @relation(fields: [experimentId], references: [id], onDelete: Cascade)
 
-  language      String
+  language      Language
 
   content       String      @db.LongText
 
