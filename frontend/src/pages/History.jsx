@@ -13,7 +13,6 @@ export default function History() {
   useDocumentTitle('pageTitles.history')
 
   const [experiments, setExperiments] = useState([])
-
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -40,9 +39,7 @@ export default function History() {
     const link = document.createElement('a')
 
     link.href = url
-
     link.download = 'experiments.json'
-
     link.click()
 
     URL.revokeObjectURL(url)
@@ -50,7 +47,7 @@ export default function History() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
+      <div className="flex items-end justify-between">
         <div>
           <h1 className="text-4xl font-bold">{t('history.title')}</h1>
 
@@ -59,7 +56,7 @@ export default function History() {
 
         <button
           onClick={exportJson}
-          className="rounded-xl border px-5 py-3 transition hover:bg-slate-100"
+          className="rounded-lg border px-4 py-2 text-sm transition hover:bg-slate-100"
         >
           {t('history.export')}
         </button>

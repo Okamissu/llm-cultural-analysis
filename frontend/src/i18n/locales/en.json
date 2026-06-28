@@ -79,14 +79,18 @@
     "description": "List of all performed experiments.",
     "export": "Export JSON",
     "date": "Date",
+    "prompt": "Prompt",
+    "model": "Model",
     "direction": "Direction",
-    "temperature": "Temperature",
-    "cultural": "Cultural Prompting",
-    "promptSimilarity": "Prompt",
-    "responseSimilarity": "Response"
+    "temperature": "Temp.",
+    "cultural": "Cultural",
+    "promptSimilarity": "Prompt Sim.",
+    "responseSimilarity": "Response Sim.",
+    "detailsHint": "Click a table row to view experiment details."
   },
-
   "common": {
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "enabled": "ON",
+    "disabled": "OFF"
   }
 }

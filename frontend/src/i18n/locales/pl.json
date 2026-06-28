@@ -79,13 +79,18 @@
     "description": "Lista wszystkich przeprowadzonych analiz.",
     "export": "Eksport JSON",
     "date": "Data",
+    "prompt": "Prompt",
+    "model": "Model",
     "direction": "Kierunek",
-    "temperature": "Temperatura",
-    "cultural": "Prompting kulturowy",
-    "promptSimilarity": "Prompt",
-    "responseSimilarity": "Odpowiedź"
+    "temperature": "Temp.",
+    "cultural": "Kulturowy",
+    "promptSimilarity": "Pod. promptów",
+    "responseSimilarity": "Pod. odpowiedzi",
+    "detailsHint": "Kliknij wiersz tabeli, aby wyświetlić szczegóły eksperymentu."
   },
   "common": {
-    "loading": "Ładowanie..."
+    "loading": "Ładowanie...",
+    "enabled": "TAK",
+    "disabled": "NIE"
   }
 }
