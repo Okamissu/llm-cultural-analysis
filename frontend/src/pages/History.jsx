@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import ExperimentTable from '../components/ExperimentTable'
 import Loader from '../components/Loader'
 
-import { getExperiments } from '../services/experimentApi'
+import { getExperiments, exportExperiments } from '../services/experimentApi'
 import { showApiError } from '../services/toast'
 
 import useDocumentTitle from '../hooks/useDocumentTitle'
@@ -35,8 +35,10 @@ export default function History() {
     load()
   }, [t])
 
-  function exportJson() {
-    const blob = new Blob([JSON.stringify(experiments, null, 2)], {
+  async function exportJson() {
+    const data = await exportExperiments()
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
       type: 'application/json',
     })
 
@@ -45,7 +47,7 @@ export default function History() {
     const link = document.createElement('a')
 
     link.href = url
-    link.download = 'experiments.json'
+    link.download = `experiments-${Date.now()}.json`
     link.click()
 
     URL.revokeObjectURL(url)

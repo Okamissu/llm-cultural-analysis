@@ -8,6 +8,10 @@ export function getExperiment(id) {
   return api(`/experiments/${id}`)
 }
 
+export function exportExperiments() {
+  return api('/experiments/export')
+}
+
 export function deleteExperiment(id, password) {
   return api(`/experiments/${id}`, {
     method: 'DELETE',
