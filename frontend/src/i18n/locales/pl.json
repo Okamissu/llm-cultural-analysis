@@ -90,7 +90,8 @@
     "back": "Powrót do historii",
     "backStats": "Powrót do statystyk",
     "experiment": "Eksperyment",
-    "settings": "Parametry eksperymentu"
+    "settings": "Parametry eksperymentu",
+    "repeat": "Powtórz eksperyment"
   },
   "statistics": {
     "title": "Statystyki",

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import { getExperiment } from '../services/experimentApi'
@@ -10,6 +10,7 @@ import JudgeTable from '../components/JudgeTable'
 export default function ExperimentDetails() {
   const { id } = useParams()
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
   const [experiment, setExperiment] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -112,14 +113,43 @@ export default function ExperimentDetails() {
           {t('history.backStats')} →
         </Link>
       </span>
-      <section className="rounded-2xl bg-white px-8 py-4 shadow-sm w-fit">
-        <h1 className="text-2xl font-bold">
-          {t('history.experiment')} #{experiment.id}
-        </h1>
+      <section className="flex items-center justify-between rounded-2xl bg-white px-8 py-5 shadow-sm">
+        <div>
+          <h1 className="text-2xl font-bold">
+            {t('history.experiment')} #{experiment.id}
+          </h1>
 
-        <p className="mt-2 text-slate-500">
-          {new Date(experiment.createdAt).toLocaleString()}
-        </p>
+          <p className="mt-2 text-slate-500">
+            {new Date(experiment.createdAt).toLocaleString()}
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() =>
+              navigate('/', {
+                state: {
+                  repeat: {
+                    prompt:
+                      experiment.prompts.find(
+                        (p) => p.promptType === 'ORIGINAL',
+                      )?.content ?? '',
+                    sourceLanguage: experiment.sourceLanguage.toLowerCase(),
+                    culturalPrompting: experiment.culturalPrompting,
+                    temperature: Number(experiment.temperature),
+                  },
+                },
+              })
+            }
+            className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+          >
+            {t('history.repeat')}
+          </button>
+
+          <button className="rounded-lg border border-red-300 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50">
+            {t('history.delete')}
+          </button>
+        </div>
       </section>
 
       <section className="rounded-2xl bg-white p-8 shadow-sm">

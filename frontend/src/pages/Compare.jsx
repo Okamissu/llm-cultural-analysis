@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 
 import SimilarityChart from '../components/SimilarityChart'
 import JudgeTable from '../components/JudgeTable'
@@ -12,13 +13,22 @@ import useDocumentTitle from '../hooks/useDocumentTitle'
 export default function Compare() {
   const { t, i18n } = useTranslation()
 
-  const [prompt, setPrompt] = useState('')
+  const location = useLocation()
+  const repeat = location.state?.repeat
+
+  const [prompt, setPrompt] = useState(repeat?.prompt ?? '')
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
 
-  const [sourceLanguage, setSourceLanguage] = useState('pl')
-  const [culturalPrompting, setCulturalPrompting] = useState(false)
-  const [temperature, setTemperature] = useState(0.7)
+  const [sourceLanguage, setSourceLanguage] = useState(
+    repeat?.sourceLanguage ?? 'pl',
+  )
+
+  const [culturalPrompting, setCulturalPrompting] = useState(
+    repeat?.culturalPrompting ?? false,
+  )
+
+  const [temperature, setTemperature] = useState(repeat?.temperature ?? 0.7)
 
   useDocumentTitle('pageTitles.compare')
 
