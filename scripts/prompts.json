@@ -148,30 +148,28 @@
     "language": "en",
     "prompt": "Explain how Wi-Fi works."
   },
-  [
-    {
-      "id": 25,
-      "category": "idioms",
-      "language": "pl",
-      "prompt": "Wyjaśnij znaczenie powiedzenia „Nie mój cyrk, nie moje małpy”."
-    },
-    {
-      "id": 26,
-      "category": "idioms",
-      "language": "en",
-      "prompt": "Explain the meaning of the phrase \"Break a leg.\""
-    },
-    {
-      "id": 27,
-      "category": "idioms",
-      "language": "pl",
-      "prompt": "Wyjaśnij znaczenie powiedzenia „Gość w dom, Bóg w dom”."
-    },
-    {
-      "id": 28,
-      "category": "idioms",
-      "language": "en",
-      "prompt": "Explain the meaning of the phrase \"The early bird catches the worm.\""
-    }
-  ]
+  {
+    "id": 25,
+    "category": "idioms",
+    "language": "pl",
+    "prompt": "Wyjaśnij znaczenie powiedzenia „Nie mój cyrk, nie moje małpy”."
+  },
+  {
+    "id": 26,
+    "category": "idioms",
+    "language": "en",
+    "prompt": "Explain the meaning of the phrase \"Break a leg.\""
+  },
+  {
+    "id": 27,
+    "category": "idioms",
+    "language": "pl",
+    "prompt": "Wyjaśnij znaczenie powiedzenia „Gość w dom, Bóg w dom”."
+  },
+  {
+    "id": 28,
+    "category": "idioms",
+    "language": "en",
+    "prompt": "Explain the meaning of the phrase \"The early bird catches the worm.\""
+  }
 ]
