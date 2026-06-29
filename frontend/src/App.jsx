@@ -14,7 +14,7 @@ function App() {
     <>
       <Navbar />
 
-      <main className="mx-auto max-w-6xl p-8">
+      <main className="mx-auto max-w-7xl px-4 py-6 md:p-8">
         <Routes>
           <Route path="/" element={<Compare />} />
 

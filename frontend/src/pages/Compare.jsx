@@ -70,7 +70,7 @@ export default function Compare() {
   return (
     <div className="mx-auto max-w-7xl space-y-10">
       <section className="rounded-2xl bg-white p-8 shadow-sm">
-        <h1 className="text-4xl font-bold tracking-tight">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
           {t('compare.title')}
         </h1>
 
@@ -89,7 +89,7 @@ export default function Compare() {
               onChange={(e) => setPrompt(e.target.value)}
               placeholder={t('compare.placeholder')}
               maxLength={1000}
-              className="w-full resize-none rounded-xl border bg-slate-50 p-5 outline-none transition focus:border-slate-800"
+              className="h-64 md:h-96 w-full resize-none rounded-xl border bg-slate-50 p-5 outline-none transition focus:border-slate-800"
             />
 
             <div className="mt-1 flex justify-end">

@@ -10,12 +10,12 @@ export default function About() {
   return (
     <div className="mx-auto max-w-5xl space-y-8">
       <div>
-        <h1 className="text-4xl font-bold">{t('about.title')}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold">{t('about.title')}</h1>
 
         <p className="mt-2 text-slate-600">{t('about.description')}</p>
       </div>
 
-      <section className="rounded-2xl bg-white p-8 shadow-sm">
+      <section className="rounded-2xl bg-white p-6 md:p-8 shadow-sm">
         <h2 className="text-2xl font-bold">{t('about.projectTitle')}</h2>
 
         <div className="mt-6 space-y-5 leading-8 text-slate-700">
@@ -27,7 +27,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="rounded-2xl bg-white p-8 shadow-sm">
+      <section className="rounded-2xl bg-white p-6 md:p-8 shadow-sm">
         <h2 className="text-2xl font-bold">{t('about.technologies')}</h2>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -51,7 +51,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="rounded-2xl bg-white p-8 shadow-sm">
+      <section className="rounded-2xl bg-white p-6 md:p-8 shadow-sm">
         <h2 className="text-2xl font-bold">{t('about.author')}</h2>
 
         <div className="mt-6 space-y-4 leading-8 text-slate-700">
@@ -66,7 +66,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="rounded-2xl border-l-4 border-slate-800 bg-slate-50 p-8">
+      <section className="rounded-2xl border-l-4 border-slate-800 bg-slate-50 p-6 md:p-8">
         <h2 className="text-2xl font-bold">{t('about.thesis')}</h2>
 
         <p className="mt-6 leading-8 text-slate-700">

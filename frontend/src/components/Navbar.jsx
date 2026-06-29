@@ -25,28 +25,33 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
-        <h1 className="text-xl font-bold tracking-tight flex gap-2">
-          <img className="hidden sm:inline-block w-7 " src={'/icon.png'}></img>
+      <nav className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:justify-between md:px-8">
+        <h1 className="flex items-center gap-2 text-xl font-bold tracking-tight">
+          <img src="/icon.png" alt="Application logo" className="h-7 w-7" />
+
           <span className="hidden lg:inline">{t('navbar.title')}</span>
         </h1>
 
-        <div className="flex items-center gap-6">
-          <div className="flex gap-2">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center">
+          <div className="flex flex-wrap justify-center gap-2 md:justify-start">
             {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `rounded-lg px-4 py-2 text-sm font-medium transition whitespace-nowrap
- ${isActive ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'}`
+                  `rounded-lg px-4 py-2 text-sm font-medium whitespace-nowrap transition ${
+                    isActive
+                      ? 'bg-slate-900 text-white'
+                      : 'text-slate-600 hover:bg-slate-100'
+                  }`
                 }
               >
                 {t(link.key)}
               </NavLink>
             ))}
           </div>
-          <div className="flex overflow-hidden rounded-lg border">
+
+          <div className="ml-auto flex overflow-hidden rounded-lg border">
             <button
               onClick={() => i18n.changeLanguage('en')}
               className={`px-3 py-2 text-sm ${

@@ -67,7 +67,9 @@ export default function Statistics() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-4xl font-bold">{t('statistics.title')}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold">
+          {t('statistics.title')}
+        </h1>
 
         <p className="mt-2 text-slate-600">{t('statistics.description')}</p>
       </div>

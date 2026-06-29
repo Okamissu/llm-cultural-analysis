@@ -63,9 +63,11 @@ export default function History() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-end justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <h1 className="text-4xl font-bold">{t('history.title')}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">
+            {t('history.title')}
+          </h1>
 
           <p className="mt-2 text-slate-600">{t('history.description')}</p>
         </div>

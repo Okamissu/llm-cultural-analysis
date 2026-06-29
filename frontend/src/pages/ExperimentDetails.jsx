@@ -152,7 +152,7 @@ export default function ExperimentDetails() {
           {t('history.backStats')} →
         </Link>
       </span>
-      <section className="flex items-center justify-between rounded-2xl bg-white px-8 py-5 shadow-sm">
+      <section className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between rounded-2xl bg-white px-8 py-5 shadow-sm">
         <div>
           <h1 className="text-2xl font-bold">
             {t('history.experiment')} #{experiment.id}
