@@ -82,13 +82,22 @@ export default function Compare() {
           onSubmit={handleSubmit}
           className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1fr)_360px]"
         >
-          <textarea
-            rows={12}
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            placeholder={t('compare.placeholder')}
-            className="w-full resize-none rounded-xl border bg-slate-50 p-5 outline-none transition focus:border-slate-800"
-          />
+          <div className="relative">
+            <textarea
+              rows={12}
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              placeholder={t('compare.placeholder')}
+              maxLength={1000}
+              className="w-full resize-none rounded-xl border bg-slate-50 p-5 outline-none transition focus:border-slate-800"
+            />
+
+            <div className="mt-1 flex justify-end">
+              <span className="text-xs text-slate-400">
+                {prompt.length} / 1000
+              </span>
+            </div>
+          </div>
 
           <SettingsPanel
             sourceLanguage={sourceLanguage}
