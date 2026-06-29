@@ -163,5 +163,15 @@
     "cancel": "Cancel",
     "requestFailed": "An error occurred while communicating with the server.",
     "notFound": "Resource not found."
+  },
+  "errors": {
+    "NETWORK_ERROR": "Unable to connect to the server.",
+    "INVALID_PASSWORD": "Invalid password.",
+    "EXPERIMENT_NOT_FOUND": "Experiment not found.",
+    "OPENAI_QUOTA_EXCEEDED": "The OpenAI API quota has been exceeded.",
+    "OPENAI_INVALID_API_KEY": "Invalid OpenAI API key.",
+    "OPENAI_TIMEOUT": "The request to OpenAI timed out.",
+    "OPENAI_API_ERROR": "An error occurred while communicating with OpenAI.",
+    "INTERNAL_SERVER_ERROR": "An unexpected server error occurred."
   }
 }

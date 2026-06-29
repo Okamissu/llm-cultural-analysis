@@ -8,7 +8,7 @@ import EmbeddingPlot from '../components/EmbeddingPlot'
 import SettingsPanel from '../components/SettingsPanel'
 
 import { comparePrompts } from '../services/compareApi'
-import { showSuccess, showError } from '../services/toast'
+import { showSuccess, showApiError } from '../services/toast'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function Compare() {
@@ -52,8 +52,8 @@ export default function Compare() {
       setResult(response)
 
       showSuccess(t('compare.finished'))
-    } catch {
-      showError(t('common.requestFailed'))
+    } catch (error) {
+      showApiError(error, t)
     } finally {
       setLoading(false)
     }

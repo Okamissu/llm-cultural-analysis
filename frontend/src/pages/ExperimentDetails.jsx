@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import { getExperiment, deleteExperiment } from '../services/experimentApi'
-import { showSuccess, showError } from '../services/toast'
+import { showSuccess, showApiError } from '../services/toast'
 
 import SimilarityChart from '../components/SimilarityChart'
 import JudgeTable from '../components/JudgeTable'
@@ -30,8 +30,8 @@ export default function ExperimentDetails() {
       showSuccess(t('history.deleted'))
 
       navigate('/history')
-    } catch (err) {
-      showError(err.message)
+    } catch (error) {
+      showApiError(error, t)
     } finally {
       setDeleteLoading(false)
     }
@@ -43,8 +43,8 @@ export default function ExperimentDetails() {
         const data = await getExperiment(id)
 
         setExperiment(data)
-      } catch {
-        showError(t('common.requestFailed'))
+      } catch (error) {
+        showApiError(error, t)
       } finally {
         setLoading(false)
       }

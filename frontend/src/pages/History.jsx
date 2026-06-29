@@ -5,7 +5,7 @@ import ExperimentTable from '../components/ExperimentTable'
 import Loader from '../components/Loader'
 
 import { getExperiments } from '../services/experimentApi'
-import { showError } from '../services/toast'
+import { showApiError } from '../services/toast'
 
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
@@ -23,8 +23,8 @@ export default function History() {
         const data = await getExperiments()
 
         setExperiments(data)
-      } catch {
-        showError(t('common.requestFailed'))
+      } catch (error) {
+        showApiError(error, t)
       } finally {
         setLoading(false)
       }
