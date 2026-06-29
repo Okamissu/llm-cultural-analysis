@@ -10,7 +10,8 @@
     "compare": "Porównanie | Analiza kulturowa LLM",
     "history": "Historia | Analiza kulturowa LLM",
     "statistics": "Statystyki | Analiza kulturowa LLM",
-    "about": "O projekcie | Analiza kulturowa LLM"
+    "about": "O projekcie | Analiza kulturowa LLM",
+    "notFound": "404 | Analiza kulturowa LLM"
   },
   "language": {
     "english": "Angielski",
@@ -96,7 +97,9 @@
     "delete": "Usuń eksperyment",
     "deleteDescription": "Podaj hasło administratora, aby usunąć eksperyment.",
     "password": "Hasło",
-    "deleted": "Eksperyment został usunięty."
+    "deleted": "Eksperyment został usunięty.",
+    "notFound": "Nie znaleziono eksperymentu",
+    "notFoundDescription": "Eksperyment nie istnieje lub został usunięty."
   },
   "statistics": {
     "title": "Statystyki",
@@ -147,6 +150,11 @@
     "thesis": "Informacja o pracy magisterskiej",
     "thesisAuthor": "Autorem niniejszego serwisu jest <strong>Kamil Kobylarz</strong>.",
     "thesisDescription": "Serwis ten stanowi integralną część pracy magisterskiej (kierunek: <strong>Elektroniczne Przetwarzanie Informacji</strong>), przygotowanej pod kierunkiem <strong>prof. dr hab. Mariusza Flasińskiego</strong> na Wydziale Zarządzania i Komunikacji Społecznej Uniwersytetu Jagiellońskiego."
+  },
+  "notFound": {
+    "title": "Nie znaleziono strony",
+    "description": "Strona, której szukasz, nie istnieje lub została przeniesiona.",
+    "home": "Powrót do strony głównej"
   },
   "common": {
     "loading": "Ładowanie...",

@@ -10,7 +10,8 @@
     "compare": "Compare | LLM Cultural Analysis",
     "history": "History | LLM Cultural Analysis",
     "statistics": "Statistics | LLM Cultural Analysis",
-    "about": "About | LLM Cultural Analysis"
+    "about": "About | LLM Cultural Analysis",
+    "notFound": "404 | LLM Cultural Analysis"
   },
   "language": {
     "english": "English",
@@ -96,7 +97,9 @@
     "delete": "Delete experiment",
     "deleteDescription": "Enter the administrator password to delete this experiment.",
     "password": "Password",
-    "deleted": "Experiment deleted successfully."
+    "deleted": "Experiment deleted successfully.",
+    "notFound": "Experiment not found",
+    "notFoundDescription": "The requested experiment does not exist or has been deleted."
   },
   "statistics": {
     "title": "Statistics",
@@ -147,6 +150,11 @@
     "thesis": "Master's Thesis Information",
     "thesisAuthor": "This web application was created by <strong>Kamil Kobylarz</strong>.",
     "thesisDescription": "This application constitutes an integral part of a Master's thesis in <strong>Electronic Information Processing</strong>, prepared under the supervision of <strong>Prof. Mariusz Flasiński</strong> at the Faculty of Management and Social Communication, Jagiellonian University."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "home": "Back to home"
   },
   "common": {
     "loading": "Loading...",

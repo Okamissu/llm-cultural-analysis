@@ -58,7 +58,22 @@ export default function ExperimentDetails() {
   }
 
   if (!experiment) {
-    return <div>{t('common.notFound')}</div>
+    return (
+      <div className="mx-auto max-w-2xl rounded-2xl bg-white p-12 text-center shadow-sm">
+        <h1 className="text-3xl font-bold">{t('history.notFound')}</h1>
+
+        <p className="mt-3 text-slate-500">
+          {t('history.notFoundDescription')}
+        </p>
+
+        <Link
+          to="/history"
+          className="mt-8 inline-flex rounded-xl bg-slate-900 px-5 py-3 text-white transition hover:bg-slate-800"
+        >
+          {t('history.back')}
+        </Link>
+      </div>
+    )
   }
 
   const originalPrompt = experiment.prompts.find(

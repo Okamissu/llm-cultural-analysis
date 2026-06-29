@@ -7,6 +7,7 @@ import History from './pages/History'
 import Statistics from './pages/Statistics'
 import About from './pages/About'
 import ExperimentDetails from './pages/ExperimentDetails'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/statistics" element={<Statistics />} />
 
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </>
