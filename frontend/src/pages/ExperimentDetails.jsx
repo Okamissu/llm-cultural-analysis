@@ -8,6 +8,7 @@ import { showSuccess, showError } from '../services/toast'
 import SimilarityChart from '../components/SimilarityChart'
 import JudgeTable from '../components/JudgeTable'
 import DeleteExperimentModal from '../components/DeleteExperimentModal'
+import Loader from '../components/Loader'
 
 export default function ExperimentDetails() {
   const { id } = useParams()
@@ -53,7 +54,7 @@ export default function ExperimentDetails() {
   }, [id, t])
 
   if (loading) {
-    return <div>{t('common.loading')}</div>
+    return <Loader />
   }
 
   if (!experiment) {

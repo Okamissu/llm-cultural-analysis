@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import ExperimentTable from '../components/ExperimentTable'
+import Loader from '../components/Loader'
 
 import { getExperiments } from '../services/experimentApi'
 import { showError } from '../services/toast'
@@ -65,11 +66,7 @@ export default function History() {
         </button>
       </div>
 
-      {loading ? (
-        <div>{t('common.loading')}</div>
-      ) : (
-        <ExperimentTable experiments={experiments} />
-      )}
+      {loading ? <Loader /> : <ExperimentTable experiments={experiments} />}
     </div>
   )
 }

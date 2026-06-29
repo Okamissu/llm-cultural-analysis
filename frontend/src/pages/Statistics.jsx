@@ -10,6 +10,7 @@ import StatsCards from '../components/StatsCards'
 import JudgeComparisonChart from '../components/JudgeComparisonChart'
 import BestWorstCards from '../components/BestWorstCards'
 import JudgeHeatmap from '../components/JudgeHeatmap'
+import Loader from '../components/Loader'
 
 export default function Statistics() {
   const { t } = useTranslation()
@@ -37,7 +38,7 @@ export default function Statistics() {
   }, [t])
 
   if (loading) {
-    return <div>{t('common.loading')}</div>
+    return <Loader />
   }
 
   return (
