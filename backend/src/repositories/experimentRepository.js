@@ -88,6 +88,19 @@ class ExperimentRepository {
   async deleteAll() {
     return prisma.experiment.deleteMany()
   }
+
+  async exportAll() {
+    return prisma.experiment.findMany({
+      include: {
+        prompts: true,
+        responses: true,
+        evaluation: true,
+      },
+      orderBy: {
+        id: 'asc',
+      },
+    })
+  }
 }
 
 export default new ExperimentRepository()

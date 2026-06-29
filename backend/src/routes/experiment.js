@@ -5,11 +5,14 @@ import {
   getExperiment,
   deleteExperiment,
   deleteAllExperiments,
+  exportExperiments,
 } from '../controllers/experimentController.js'
 
 const router = express.Router()
 
 router.get('/', getExperiments)
+
+router.get('/export', exportExperiments)
 
 router.get('/:id', getExperiment)
 

@@ -29,6 +29,16 @@ export async function getExperiment(req, res, next) {
   }
 }
 
+export async function exportExperiments(req, res, next) {
+  try {
+    const experiments = await ExperimentRepository.exportAll()
+
+    res.json(experiments)
+  } catch (error) {
+    next(error)
+  }
+}
+
 export async function deleteExperiment(req, res, next) {
   try {
     const { password } = req.body
