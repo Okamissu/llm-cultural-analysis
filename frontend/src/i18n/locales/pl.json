@@ -172,6 +172,10 @@
     "OPENAI_INVALID_API_KEY": "Nieprawidłowy klucz API OpenAI.",
     "OPENAI_TIMEOUT": "Przekroczono czas oczekiwania na odpowiedź OpenAI.",
     "OPENAI_API_ERROR": "Wystąpił błąd podczas komunikacji z OpenAI.",
-    "INTERNAL_SERVER_ERROR": "Wystąpił nieoczekiwany błąd serwera."
+    "INTERNAL_SERVER_ERROR": "Wystąpił nieoczekiwany błąd serwera.",
+    "loadStatistics": "Nie udało się załadować statystyk.",
+    "loadHistory": "Nie udało się załadować historii eksperymentów.",
+    "loadExperiment": "Nie udało się załadować eksperymentu.",
+    "tryAgain": "Sprawdź połączenie z serwerem i spróbuj ponownie."
   }
 }

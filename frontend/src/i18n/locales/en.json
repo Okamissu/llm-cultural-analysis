@@ -172,6 +172,10 @@
     "OPENAI_INVALID_API_KEY": "Invalid OpenAI API key.",
     "OPENAI_TIMEOUT": "The request to OpenAI timed out.",
     "OPENAI_API_ERROR": "An error occurred while communicating with OpenAI.",
-    "INTERNAL_SERVER_ERROR": "An unexpected server error occurred."
+    "INTERNAL_SERVER_ERROR": "An unexpected server error occurred.",
+    "loadStatistics": "Failed to load statistics.",
+    "loadHistory": "Failed to load experiment history.",
+    "loadExperiment": "Failed to load the experiment.",
+    "tryAgain": "Please check your connection and try again."
   }
 }

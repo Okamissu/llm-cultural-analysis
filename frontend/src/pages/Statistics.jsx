@@ -18,8 +18,8 @@ export default function Statistics() {
   useDocumentTitle('pageTitles.statistics')
 
   const [statistics, setStatistics] = useState(null)
-
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -28,6 +28,7 @@ export default function Statistics() {
 
         setStatistics(data)
       } catch (error) {
+        setError(true)
         showApiError(error, t)
       } finally {
         setLoading(false)
@@ -39,6 +40,16 @@ export default function Statistics() {
 
   if (loading) {
     return <Loader />
+  }
+
+  if (error) {
+    return (
+      <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
+        <h1 className="text-2xl font-bold">{t('errors.loadHistory')}</h1>
+
+        <p className="mt-3 text-slate-500">{t('errors.tryAgain')}</p>
+      </div>
+    )
   }
 
   return (
