@@ -1,22 +1,17 @@
 import ExperimentRepository from '../repositories/experimentRepository.js'
 import { ADMIN_PASSWORD } from '../config/config.js'
 
-export async function getExperiments(req, res) {
+export async function getExperiments(req, res, next) {
   try {
     const experiments = await ExperimentRepository.findAll()
 
     res.json(experiments)
   } catch (error) {
-    console.error(error)
-
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    })
+    next(error)
   }
 }
 
-export async function getExperiment(req, res) {
+export async function getExperiment(req, res, next) {
   try {
     const experiment = await ExperimentRepository.findById(
       Number(req.params.id),
@@ -24,30 +19,23 @@ export async function getExperiment(req, res) {
 
     if (!experiment) {
       return res.status(404).json({
-        success: false,
-        error: 'Experiment not found',
+        code: 'EXPERIMENT_NOT_FOUND',
       })
     }
 
     res.json(experiment)
   } catch (error) {
-    console.error(error)
-
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    })
+    next(error)
   }
 }
 
-export async function deleteExperiment(req, res) {
+export async function deleteExperiment(req, res, next) {
   try {
     const { password } = req.body
 
     if (password !== ADMIN_PASSWORD) {
       return res.status(401).json({
-        success: false,
-        error: 'Invalid password',
+        code: 'INVALID_PASSWORD',
       })
     }
 
@@ -55,23 +43,17 @@ export async function deleteExperiment(req, res) {
 
     res.status(204).send()
   } catch (error) {
-    console.error(error)
-
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    })
+    next(error)
   }
 }
 
-export async function deleteAllExperiments(req, res) {
+export async function deleteAllExperiments(req, res, next) {
   try {
     const { password } = req.body
 
     if (password !== ADMIN_PASSWORD) {
       return res.status(401).json({
-        success: false,
-        error: 'Invalid password',
+        code: 'INVALID_PASSWORD',
       })
     }
 
@@ -79,11 +61,6 @@ export async function deleteAllExperiments(req, res) {
 
     res.status(204).send()
   } catch (error) {
-    console.error(error)
-
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    })
+    next(error)
   }
 }

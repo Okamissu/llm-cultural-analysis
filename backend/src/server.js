@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import compareRoutes from './routes/compare.js'
 import experimentRoutes from './routes/experiment.js'
 import statisticsRoutes from './routes/statistics.js'
+import errorHandler from './middleware/errorHandler.js'
 
 import { PORT } from './config/config.js'
 
@@ -24,6 +25,7 @@ app.use('/api/compare', compareRoutes)
 app.use('/api/experiments', experimentRoutes)
 app.use('/api/statistics', statisticsRoutes)
 
+app.use(errorHandler)
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })

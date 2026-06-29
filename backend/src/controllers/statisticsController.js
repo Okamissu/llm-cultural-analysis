@@ -6,11 +6,6 @@ export async function getStatistics(req, res) {
 
     res.json(statistics)
   } catch (error) {
-    console.error(error)
-
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    })
+    next(error)
   }
 }
