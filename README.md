@@ -84,7 +84,7 @@ DATABASE_URL=mysql://user:password@localhost:3306/database
 
 OPENAI_API_KEY=your_api_key
 
-OPENAI_MODEL=gpt-4.1
+OPENAI_MODEL=gpt-4.1-mini
 
 OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 
