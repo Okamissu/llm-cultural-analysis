@@ -34,7 +34,8 @@
     "analyze": "Analyze",
     "analyzing": "Analyzing...",
     "sourceLanguage": "Prompt language",
-    "translationDirection": "Translation direction"
+    "translationDirection": "Translation direction",
+    "finished": "Analysis completed successfully."
   },
   "prompt": {
     "title": "Prompt ({{language}})"
@@ -94,7 +95,8 @@
     "repeat": "Repeat experiment",
     "delete": "Delete experiment",
     "deleteDescription": "Enter the administrator password to delete this experiment.",
-    "password": "Password"
+    "password": "Password",
+    "deleted": "Experiment deleted successfully."
   },
   "statistics": {
     "title": "Statistics",
@@ -150,6 +152,8 @@
     "loading": "Loading...",
     "enabled": "ON",
     "disabled": "OFF",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "requestFailed": "An error occurred while communicating with the server.",
+    "notFound": "Resource not found."
   }
 }

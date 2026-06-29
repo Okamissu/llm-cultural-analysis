@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 export default function DeleteExperimentModal({
   open,
   loading,
-  error,
   onClose,
   onDelete,
 }) {
@@ -34,8 +33,6 @@ export default function DeleteExperimentModal({
           placeholder={t('history.password')}
           className="mt-6 w-full rounded-lg border px-4 py-3 outline-none focus:border-slate-900"
         />
-
-        {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
 
         <div className="mt-6 flex justify-end gap-3">
           <button

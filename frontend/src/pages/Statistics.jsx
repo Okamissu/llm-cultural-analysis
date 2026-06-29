@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { getStatistics } from '../services/statisticsApi'
+import { showError } from '../services/toast'
 
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
@@ -25,13 +26,15 @@ export default function Statistics() {
         const data = await getStatistics()
 
         setStatistics(data)
+      } catch {
+        showError(t('common.requestFailed'))
       } finally {
         setLoading(false)
       }
     }
 
     load()
-  }, [])
+  }, [t])
 
   if (loading) {
     return <div>{t('common.loading')}</div>
@@ -48,7 +51,7 @@ export default function Statistics() {
       <StatsCards statistics={statistics} />
 
       <BestWorstCards statistics={statistics} />
-      
+
       <JudgeComparisonChart statistics={statistics} />
 
       <JudgeHeatmap statistics={statistics} />

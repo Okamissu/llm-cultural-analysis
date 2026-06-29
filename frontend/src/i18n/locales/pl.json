@@ -34,7 +34,8 @@
     "analyze": "Analizuj",
     "analyzing": "Analizowanie...",
     "sourceLanguage": "Język promptu",
-    "translationDirection": "Kierunek tłumaczenia"
+    "translationDirection": "Kierunek tłumaczenia",
+    "finished": "Analiza zakończona pomyślnie."
   },
   "prompt": {
     "title": "Prompt ({{language}})"
@@ -94,7 +95,8 @@
     "repeat": "Powtórz eksperyment",
     "delete": "Usuń eksperyment",
     "deleteDescription": "Podaj hasło administratora, aby usunąć eksperyment.",
-    "password": "Hasło"
+    "password": "Hasło",
+    "deleted": "Eksperyment został usunięty."
   },
   "statistics": {
     "title": "Statystyki",
@@ -150,6 +152,8 @@
     "loading": "Ładowanie...",
     "enabled": "TAK",
     "disabled": "NIE",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "requestFailed": "Wystąpił błąd podczas komunikacji z serwerem.",
+    "notFound": "Nie znaleziono zasobu."
   }
 }

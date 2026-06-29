@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import { getExperiment, deleteExperiment } from '../services/experimentApi'
+import { showSuccess, showError } from '../services/toast'
 
 import SimilarityChart from '../components/SimilarityChart'
 import JudgeTable from '../components/JudgeTable'
@@ -18,18 +19,18 @@ export default function ExperimentDetails() {
 
   const [showDelete, setShowDelete] = useState(false)
   const [deleteLoading, setDeleteLoading] = useState(false)
-  const [deleteError, setDeleteError] = useState('')
 
   async function handleDelete(password) {
     setDeleteLoading(true)
-    setDeleteError('')
 
     try {
       await deleteExperiment(experiment.id, password)
 
+      showSuccess(t('history.deleted'))
+
       navigate('/history')
     } catch (err) {
-      setDeleteError(err.message)
+      showError(err.message)
     } finally {
       setDeleteLoading(false)
     }
@@ -41,13 +42,15 @@ export default function ExperimentDetails() {
         const data = await getExperiment(id)
 
         setExperiment(data)
+      } catch {
+        showError(t('common.requestFailed'))
       } finally {
         setLoading(false)
       }
     }
 
     load()
-  }, [id])
+  }, [id, t])
 
   if (loading) {
     return <div>{t('common.loading')}</div>
@@ -300,11 +303,7 @@ export default function ExperimentDetails() {
       <DeleteExperimentModal
         open={showDelete}
         loading={deleteLoading}
-        error={deleteError}
-        onClose={() => {
-          setDeleteError('')
-          setShowDelete(false)
-        }}
+        onClose={() => setShowDelete(false)}
         onDelete={handleDelete}
       />
     </div>

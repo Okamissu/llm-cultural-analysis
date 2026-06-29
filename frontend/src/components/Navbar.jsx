@@ -27,10 +27,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
         <h1 className="text-xl font-bold tracking-tight flex gap-2">
-          <img
-            className="hidden sm:inline-block w-7 "
-            src={'../../public/icon.png'}
-          ></img>
+          <img className="hidden sm:inline-block w-7 " src={'/icon.png'}></img>
           <span className="hidden lg:inline">{t('navbar.title')}</span>
         </h1>
 

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import ExperimentTable from '../components/ExperimentTable'
 
 import { getExperiments } from '../services/experimentApi'
+import { showError } from '../services/toast'
 
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
@@ -21,13 +22,15 @@ export default function History() {
         const data = await getExperiments()
 
         setExperiments(data)
+      } catch {
+        showError(t('common.requestFailed'))
       } finally {
         setLoading(false)
       }
     }
 
     load()
-  }, [])
+  }, [t])
 
   function exportJson() {
     const blob = new Blob([JSON.stringify(experiments, null, 2)], {
