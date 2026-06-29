@@ -17,7 +17,6 @@ export default function ExperimentDetails() {
 
   const [experiment, setExperiment] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
 
   const [showDelete, setShowDelete] = useState(false)
   const [deleteLoading, setDeleteLoading] = useState(false)
@@ -45,7 +44,6 @@ export default function ExperimentDetails() {
 
         setExperiment(data)
       } catch (error) {
-        setError(true)
         showApiError(error, t)
       } finally {
         setLoading(false)
@@ -57,16 +55,6 @@ export default function ExperimentDetails() {
 
   if (loading) {
     return <Loader />
-  }
-
-  if (error) {
-    return (
-      <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
-        <h1 className="text-2xl font-bold">{t('errors.loadExperiment')}</h1>
-
-        <p className="mt-3 text-slate-500">{t('errors.tryAgain')}</p>
-      </div>
-    )
   }
 
   if (!experiment) {
