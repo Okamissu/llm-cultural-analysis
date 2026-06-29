@@ -5,7 +5,7 @@ import morgan from 'morgan'
 import compareRoutes from './routes/compare.js'
 import experimentRoutes from './routes/experiment.js'
 import statisticsRoutes from './routes/statistics.js'
-import errorHandler from './middleware/errorHandler.js'
+import errorHandler from './middlewares/errorHandler.js'
 
 import { PORT } from './config/config.js'
 
