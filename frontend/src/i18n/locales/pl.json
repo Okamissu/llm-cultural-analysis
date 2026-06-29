@@ -91,7 +91,10 @@
     "backStats": "Powrót do statystyk",
     "experiment": "Eksperyment",
     "settings": "Parametry eksperymentu",
-    "repeat": "Powtórz eksperyment"
+    "repeat": "Powtórz eksperyment",
+    "delete": "Usuń eksperyment",
+    "deleteDescription": "Podaj hasło administratora, aby usunąć eksperyment.",
+    "password": "Hasło"
   },
   "statistics": {
     "title": "Statystyki",
@@ -146,6 +149,7 @@
   "common": {
     "loading": "Ładowanie...",
     "enabled": "TAK",
-    "disabled": "NIE"
+    "disabled": "NIE",
+    "cancel": "Anuluj"
   }
 }

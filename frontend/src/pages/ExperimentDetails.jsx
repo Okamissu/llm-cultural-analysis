@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import { getExperiment } from '../services/experimentApi'
+import { getExperiment, deleteExperiment } from '../services/experimentApi'
 
 import SimilarityChart from '../components/SimilarityChart'
 import JudgeTable from '../components/JudgeTable'
+import DeleteExperimentModal from '../components/DeleteExperimentModal'
 
 export default function ExperimentDetails() {
   const { id } = useParams()
@@ -14,6 +15,25 @@ export default function ExperimentDetails() {
 
   const [experiment, setExperiment] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  const [showDelete, setShowDelete] = useState(false)
+  const [deleteLoading, setDeleteLoading] = useState(false)
+  const [deleteError, setDeleteError] = useState('')
+
+  async function handleDelete(password) {
+    setDeleteLoading(true)
+    setDeleteError('')
+
+    try {
+      await deleteExperiment(experiment.id, password)
+
+      navigate('/history')
+    } catch (err) {
+      setDeleteError(err.message)
+    } finally {
+      setDeleteLoading(false)
+    }
+  }
 
   useEffect(() => {
     async function load() {
@@ -146,7 +166,10 @@ export default function ExperimentDetails() {
             {t('history.repeat')}
           </button>
 
-          <button className="rounded-lg border border-red-300 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50">
+          <button
+            onClick={() => setShowDelete(true)}
+            className="rounded-lg border border-red-300 px-4 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50"
+          >
             {t('history.delete')}
           </button>
         </div>
@@ -273,6 +296,17 @@ export default function ExperimentDetails() {
           sourceLanguage={experiment.sourceLanguage.toLowerCase()}
         />
       </section>
+
+      <DeleteExperimentModal
+        open={showDelete}
+        loading={deleteLoading}
+        error={deleteError}
+        onClose={() => {
+          setDeleteError('')
+          setShowDelete(false)
+        }}
+        onDelete={handleDelete}
+      />
     </div>
   )
 }

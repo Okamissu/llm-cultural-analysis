@@ -91,7 +91,10 @@
     "backStats": "Back to statistics",
     "experiment": "Experiment",
     "settings": "Experiment settings",
-    "repeat": "Repeat experiment"
+    "repeat": "Repeat experiment",
+    "delete": "Delete experiment",
+    "deleteDescription": "Enter the administrator password to delete this experiment.",
+    "password": "Password"
   },
   "statistics": {
     "title": "Statistics",
@@ -146,6 +149,7 @@
   "common": {
     "loading": "Loading...",
     "enabled": "ON",
-    "disabled": "OFF"
+    "disabled": "OFF",
+    "cancel": "Cancel"
   }
 }
