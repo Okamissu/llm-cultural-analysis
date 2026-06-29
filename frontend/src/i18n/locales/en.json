@@ -99,7 +99,9 @@
     "password": "Password",
     "deleted": "Experiment deleted successfully.",
     "notFound": "Experiment not found",
-    "notFoundDescription": "The requested experiment does not exist or has been deleted."
+    "notFoundDescription": "The requested experiment does not exist or has been deleted.",
+    "empty": "No experiments yet",
+    "emptyDescription": "Run your first analysis to start building your experiment history."
   },
   "statistics": {
     "title": "Statistics",
@@ -134,7 +136,9 @@
     "promptingDistribution": "Cultural prompting",
     "heatmap": "Score heatmap",
     "heatmapDescription": "Comparison of average scores for responses generated in Polish and English.",
-    "criterion": "Criterion"
+    "criterion": "Criterion",
+    "empty": "No statistics available",
+    "emptyDescription": "Statistics will appear after you complete your first experiment."
   },
   "about": {
     "title": "About",

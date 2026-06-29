@@ -52,6 +52,18 @@ export default function Statistics() {
     )
   }
 
+  if (statistics.totalExperiments === 0) {
+    return (
+      <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
+        <h1 className="text-2xl font-bold">{t('statistics.empty')}</h1>
+
+        <p className="mt-3 text-slate-500">
+          {t('statistics.emptyDescription')}
+        </p>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-8">
       <div>

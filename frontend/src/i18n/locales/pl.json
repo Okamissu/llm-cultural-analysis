@@ -99,7 +99,9 @@
     "password": "Hasło",
     "deleted": "Eksperyment został usunięty.",
     "notFound": "Nie znaleziono eksperymentu",
-    "notFoundDescription": "Eksperyment nie istnieje lub został usunięty."
+    "notFoundDescription": "Eksperyment nie istnieje lub został usunięty.",
+    "empty": "Brak eksperymentów",
+    "emptyDescription": "Przeprowadź pierwszą analizę, aby rozpocząć budowanie historii eksperymentów."
   },
   "statistics": {
     "title": "Statystyki",
@@ -134,7 +136,9 @@
     "promptingDistribution": "Prompting kulturowy",
     "heatmap": "Mapa ocen",
     "heatmapDescription": "Porównanie średnich ocen odpowiedzi wygenerowanych w języku polskim i angielskim.",
-    "criterion": "Kryterium"
+    "criterion": "Kryterium",
+    "empty": "Brak dostępnych statystyk",
+    "emptyDescription": "Statystyki pojawią się po wykonaniu pierwszego eksperymentu."
   },
   "about": {
     "title": "O aplikacji",

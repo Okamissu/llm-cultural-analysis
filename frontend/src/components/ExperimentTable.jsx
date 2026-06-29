@@ -11,6 +11,16 @@ export default function ExperimentTable({ experiments }) {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
 
+  if (experiments.length === 0) {
+    return (
+      <div className="rounded-2xl bg-white p-10 text-center shadow-sm">
+        <h2 className="text-xl font-semibold">{t('history.empty')}</h2>
+
+        <p className="mt-2 text-slate-500">{t('history.emptyDescription')}</p>
+      </div>
+    )
+  }
+
   return (
     <>
       <div className="overflow-x-auto rounded-2xl bg-white shadow-sm">
