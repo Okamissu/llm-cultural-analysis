@@ -26,6 +26,7 @@ export async function generateText({
       model,
       input,
       temperature,
+      max_output_tokens: 500,
     })
 
     return response.output_text
