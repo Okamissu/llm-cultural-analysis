@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "category": "traditions",
+    "language": "pl",
+    "prompt": "Opisz tradycyjne polskie wesele."
+  },
+  {
+    "id": 2,
+    "category": "traditions",
+    "language": "en",
+    "prompt": "Describe a traditional American wedding."
+  },
+  {
+    "id": 3,
+    "category": "traditions",
+    "language": "pl",
+    "prompt": "Opisz obchody Wigilii Bożego Narodzenia."
+  },
+  {
+    "id": 4,
+    "category": "traditions",
+    "language": "en",
+    "prompt": "Describe a traditional Thanksgiving celebration."
+  },
+
+  {
+    "id": 5,
+    "category": "family",
+    "language": "pl",
+    "prompt": "Jak wygląda typowy niedzielny obiad rodzinny?"
+  },
+  {
+    "id": 6,
+    "category": "family",
+    "language": "en",
+    "prompt": "Describe a typical Sunday family dinner."
+  },
+  {
+    "id": 7,
+    "category": "family",
+    "language": "pl",
+    "prompt": "Co oznacza szacunek wobec starszych członków rodziny?"
+  },
+  {
+    "id": 8,
+    "category": "family",
+    "language": "en",
+    "prompt": "What does respecting older family members mean?"
+  },
+
+  {
+    "id": 9,
+    "category": "social_norms",
+    "language": "pl",
+    "prompt": "Jak należy zachować się podczas pierwszej wizyty u kogoś w domu?"
+  },
+  {
+    "id": 10,
+    "category": "social_norms",
+    "language": "en",
+    "prompt": "How should guests behave when visiting someone's home?"
+  },
+  {
+    "id": 11,
+    "category": "social_norms",
+    "language": "pl",
+    "prompt": "Co oznacza bycie dobrym sąsiadem?"
+  },
+  {
+    "id": 12,
+    "category": "social_norms",
+    "language": "en",
+    "prompt": "What makes someone a good neighbour?"
+  },
+
+  {
+    "id": 13,
+    "category": "food",
+    "language": "pl",
+    "prompt": "Jakie potrawy najlepiej reprezentują polską kuchnię?"
+  },
+  {
+    "id": 14,
+    "category": "food",
+    "language": "en",
+    "prompt": "Which dishes best represent American cuisine?"
+  },
+  {
+    "id": 15,
+    "category": "food",
+    "language": "pl",
+    "prompt": "Jak wygląda tradycyjne śniadanie?"
+  },
+  {
+    "id": 16,
+    "category": "food",
+    "language": "en",
+    "prompt": "Describe a traditional breakfast."
+  },
+
+  {
+    "id": 17,
+    "category": "ethics",
+    "language": "pl",
+    "prompt": "Czy dzieci powinny zawsze słuchać rodziców?"
+  },
+  {
+    "id": 18,
+    "category": "ethics",
+    "language": "en",
+    "prompt": "Should children always obey their parents?"
+  },
+  {
+    "id": 19,
+    "category": "ethics",
+    "language": "pl",
+    "prompt": "Co oznacza bycie dobrym obywatelem?"
+  },
+  {
+    "id": 20,
+    "category": "ethics",
+    "language": "en",
+    "prompt": "What makes someone a good citizen?"
+  },
+
+  {
+    "id": 21,
+    "category": "neutral",
+    "language": "pl",
+    "prompt": "Wyjaśnij, jak działa fotosynteza."
+  },
+  {
+    "id": 22,
+    "category": "neutral",
+    "language": "en",
+    "prompt": "Explain how photosynthesis works."
+  },
+  {
+    "id": 23,
+    "category": "neutral",
+    "language": "pl",
+    "prompt": "Wyjaśnij, jak działa sieć Wi-Fi."
+  },
+  {
+    "id": 24,
+    "category": "neutral",
+    "language": "en",
+    "prompt": "Explain how Wi-Fi works."
+  },
+  [
+    {
+      "id": 25,
+      "category": "idioms",
+      "language": "pl",
+      "prompt": "Wyjaśnij znaczenie powiedzenia „Nie mój cyrk, nie moje małpy”."
+    },
+    {
+      "id": 26,
+      "category": "idioms",
+      "language": "en",
+      "prompt": "Explain the meaning of the phrase \"Break a leg.\""
+    },
+    {
+      "id": 27,
+      "category": "idioms",
+      "language": "pl",
+      "prompt": "Wyjaśnij znaczenie powiedzenia „Gość w dom, Bóg w dom”."
+    },
+    {
+      "id": 28,
+      "category": "idioms",
+      "language": "en",
+      "prompt": "Explain the meaning of the phrase \"The early bird catches the worm.\""
+    }
+  ]
+]
