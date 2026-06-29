@@ -1,5 +1,7 @@
 import fs from 'node:fs/promises'
 
+const start = Date.now()
+
 const CONFIG = {
   apiUrl: 'http://localhost:3000/api/compare',
 
@@ -9,7 +11,7 @@ const CONFIG = {
 
   culturalPrompting: [false, true],
 
-  delay: 1200,
+  delay: 300,
 
   retries: 3,
 }
@@ -118,6 +120,10 @@ async function execute(job) {
     }
   }
 }
+
+const seconds = Math.round((Date.now() - start) / 1000)
+
+console.log(`Time: ${seconds}s`)
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
